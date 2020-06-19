@@ -1,0 +1,14 @@
+.mytable{
+    border-style: dotted;
+    border-width: 3px;
+    text-align: left;
+    
+}
+.myheader{
+    background-color: pink;
+    color:black;
+}
+.myrow{
+    background-color:	#88AADD;
+    color: black;
+}

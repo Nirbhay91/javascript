@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Name : <input type="text" id="text1"><br/>
+    <button onclick="addName()">Add Name</button>
+</body>
+<script>
+     var names =[];
+    function addName(){
+       var newnames = document.getElementById("text1").value;
+       names.push(newnames);
+        console.log(names);
+    
+        names.sort();
+        console.log("sorted : ",names);
+     
+        names.reverse();
+        console.log("reverse : ",names);
+    }
+</script>
+</html>

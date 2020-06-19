@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Course Name: <input type="text" id="text1"><br/>
+    <button onclick="addTop()">Add Top</button>
+    <button onclick="addEnd()">Add End</button>
+    <br/>
+    <button onclick="removeTope()">Remove Top</button>
+    <button onclick="removeEnd()">Remove End</button>
+</body>
+<script>
+    var courses = ["Java", "JavaScript", "Python", "C", "C++"];
+    var length = courses.length;
+    function addTop(){
+        var course = document.getElementById("text1").value;
+      
+        courses.unshift(course);
+
+        console.log(courses);
+        
+     
+
+    }
+    function addEnd(){
+        var course = document.getElementById("text1").value;
+         courses.push(course);
+        console.log(courses);
+        
+    }
+    function removeTope(){
+        var course = document.getElementById("text1").value;
+      var books = courses.shift();
+        console.log("remove from top",books),
+         console.log(courses);
+        
+    }
+    function removeEnd(){
+        var course = document.getElementById("text1").value;     
+        var books =courses.pop();
+        console.log("remove from end",books),
+           console.log(courses);
+    }
+</script>
+</html>

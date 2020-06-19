@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <title>Form</title>
+</head>
+<body>
+    <div class="container">
+        <div id="mytable01">
+
+        </div>
+
+    </div>
+    <script>
+        var products = [
+	                    	{"prod":"Pepsi","price":12,"quantity":16,"category":"Food"},
+		                     {"prod":"Coke","price":15,"quantity":12,"category":"Food"},
+		                    {"prod":"Mirinda","price":30,"quantity":15,"category":"Food"},
+		                    {"prod":"Red Bull","price":80,"quantity":2,"category":"Food"},
+		                       {"prod":"Lux","price":10,"quantity":11,"category":"Soap"},
+		                    {"prod":"Dove","price":25,"quantity":4,"category":"Soap"},
+		                   {"prod":"Dettol","price":15,"quantity":6,"category":"Soap"},
+		                {"prod":"Pantene","price":60,"quantity":3,"category":"Shampoo"}
+];
+                        showProducts(products);
+
+                     function showProducts(data){
+                       let header = "<div class='row border bg-dark text-white'>";
+                       header = header + "<div class='col-4'onclcik=sort(0)>Name</div>";
+                       header = header + "<div class='col-2' onclcik=sort(1)>Category</div>";
+                       header = header + "<div class='col-3' onclcik=sort(2)>Price</div>";
+                       header = header + "<div class='col-3' onclcik=sort(3)>Quantity</div>";
+                       header = header +"</div>";
+                       let mapProducts = products.map(makeElement);
+                    //    console.log(mapPersons);
+                       let stringData = mapProducts.join(" ");
+                       let element = document.getElementById("mytable01");
+                     
+                       element.innerHTML =  header + stringData; 
+                
+                   }   
+
+                   function makeElement(per){
+                       let string = "<div class='row border'><div class='col-4'>"+per.prod+"</div>";
+                       string = string + "<div class='col-2'>"+per.category+"</div>";
+                       string = string + "<div class='col-3'>"+per.price+"</div>";
+                       string = string + "<div class='col-3'>"+per.quantity+"</div>";
+                       string = string + "</div>";
+                       return string;
+                   }
+
+                   function sort(index){
+                     let data = [...products];
+                     switch (index){
+                         case 0: data.sort(sortName); break;
+                         case 1: data.sort(sortCategory); break;
+                         case 2: data.sort(sortPrice); break;
+                         case 2: data.sort(sortQuantity); break;
+
+                     }
+                     showProducts(data);
+                   }
+
+                   function sortName(p1,p2){
+                    return p1.name.localeCompare(p2.name);
+                   }
+                  
+                   function sortCategory(p1,p2){
+                    
+                    return p1.category.localeCompare(p2.category);
+                   }
+                 
+                   function sortPrice(p1,p2){
+                    return p1.price-p2.price;
+                   }
+
+                   function sortQuantity(p1,p2){
+                    return p1.quantity-p2.quantity;
+                   }
+
+    </script>
+</body>
+</html>

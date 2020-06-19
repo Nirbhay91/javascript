@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    input: <input type="text" id="input"><br/>
+    <button onclick="add()">detail</button>
+</body>
+<script>
+     var names=[" Marry"," Jack"];
+
+     var length = names.length;
+     function add(){
+         var  name1 = document.getElementById("input").value;
+         for(var count = 0;count<length;count++){
+            names[count]=name1+names[count];
+           
+        }
+         console.log(names);
+     }
+    //
+    //     console.log(names);
+</script>
+</html>

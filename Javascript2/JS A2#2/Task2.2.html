@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="task2.2.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i= 1;
+       
+        document.write("<table class ='mytable'>");
+        document.write("<tr class = 'myheader'>");
+        document.write("<td>Number</td>");
+        document.write("<td>Remainder</td>");
+        document.write("<td>Comment</td>");
+      
+        document.write("</tr>");
+      for( i = 1; i<=12; i++){
+         
+         var sq = i*i; 
+         var rem = i%4;
+         var sq = +rem;
+         var str = "not multiple of 4";
+         var str1 = "multiple of 4";
+         if(sq==0){
+             document.write("<tr class = 'zero'");
+          
+         }
+         else{
+             document.write("<tr class = 'nonzero'");
+            
+         }
+          document.write("<tr class = 'myrow'>");
+            document.write("<td>",i,"</td>");
+            document.write("<td>",sq,"</td>");
+           
+            if(sq==0){
+                document.write("<td>",str1,"</td>");
+          
+         }
+         else{
+            document.write("<td>",str,"</td>");
+         }
+          document.write("</tr>");
+          
+
+
+      }
+           
+      document.write("</table>");
+       
+    </script>
+</body>
+</html>

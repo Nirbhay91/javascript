@@ -1,0 +1,25 @@
+.Add1{
+    background-color: #0000FF;
+    color: white;
+}
+.text1{
+    background-color: 	#DDDDDD;
+  
+    color: white;
+    text-align: left;
+}
+.text2{
+    background-color: #DDDDDD;
+    color: white;
+    text-align: left;
+}
+.text3{
+   background-color: #999999;
+    color: white;
+    text-align: center;
+}
+.text4{
+    background-color: #444444;
+    color: white;
+    text-align: right;
+}

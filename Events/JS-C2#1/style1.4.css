@@ -1,0 +1,12 @@
+.textin{
+    background-color: lightgray;
+    font-weight: bold;
+}
+.textout{
+    background-color: white;
+    font-size: normal;
+}
+.badtext{
+    background-color: lightpink;
+    font-weight: normal;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style003.css">
+    <title>Document</title>
+</head>
+<body>
+    <button class="button1" onclick=" React()"> React</button>
+    <br/>
+    <button class="button1"  onclick="Angular()">Angular</button>
+    <br/>
+    <button class="button1"  onclick="Javascript()">Javascript</button>
+    <br/>
+    <button class="button2"  onclick="ResetText()">Reset Text</button>
+    <br/>
+    <div class="text" id="text"></div>
+</body>
+<script>
+     function React(){
+      var ele = document.getElementById("text");
+      ele.innerHTML=" React framework developed by facebook";
+  }
+  function Angular(){
+      var ele = document.getElementById("text");
+      ele.innerHTML=" Angular is supported by google";
+  }
+  function Javascript(){
+      var ele = document.getElementById("text");
+      ele.innerHTML=" javascript is at the center of all web apps";
+  }
+  function ResetText(){
+      var ele = document.getElementById("text");
+      ele.innerHTML=" ";
+  }
+</script>
+</html>

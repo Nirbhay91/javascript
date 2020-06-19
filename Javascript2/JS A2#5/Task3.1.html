@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style003.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div class="sub container">
+        <p>sales of peps:</p>
+        <p class="result" id="result">0</p>
+        <button class="pepsi"  onclick="pepsi()">sell 1 pepsi</button>
+    </div>
+    <div class="sub container">
+        <p>sales of cola:</p>
+        <p class="result" id="result2">0</p>
+        <button class="cola"  onclick="cola()">sell 1 coca cola</button>
+    </div>
+    <div class="pepsi" id="pepsi"></div>
+    <div class="cola" id="cola"></div>
+       
+    
+    
+</body>
+<script>
+    var x=0;
+    var y=0;
+    function pepsi(){
+        var p=document.getElementById("result");
+        x++;
+        p.innerHTML=x;
+
+    }
+    function cola(){
+         var p=document.getElementById("result2");
+         y++;
+        p.innerHTML=y;
+
+    }
+</script>
+</html>

@@ -1,0 +1,42 @@
+.div{
+    padding: 5px;
+    margin: 2px;
+    border: 5px solid lightgray;
+    background-color:yellow
+}
+.divcell{
+    display: inline-block;
+    width: 30%;
+    border: 1px solid lightgray;
+    background-color: black;
+    color: white;
+    text-align: center;
+
+}
+.divcell1{
+    display: inline-block;
+    width: 30%;
+    border: 1px solid lightgray;
+    background-color: lightgreen;
+    color: black;
+    text-align: center;
+
+}
+.divcell2{
+    display: inline-block;
+    width: 30%;
+    border: 1px solid lightgray;
+    background-color: lightgreen;
+    color: black;
+    text-align: center;
+
+}
+.divcell3{
+    display: inline-block;
+    width: 30%;
+    border: 1px solid lightgray;
+    background-color: lightgreen;
+    color: black;
+    text-align: center;
+
+}

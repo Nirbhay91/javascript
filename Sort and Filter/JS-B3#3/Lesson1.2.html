@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var p1 = {"prodid":"PX144","category":"Mobile","price":550,"quantity":7};
+    var p2 = {"prodid":"CN281","category":"Laptop","price":680,"quantity":12};
+    var p3 = {"prodid":"PA597","category":"Mobile","price":240,"quantity":20};
+    var p4 = {"prodid":"DY255","category":"Mobile","price":155,"quantity":30};
+    var p5 = {"prodid":"MR306","category":"Laptop","price":400,"quantity":5};
+    var prods = [p1,p2,p3,p4,p5];
+    console.log(JSON.stringify(prods));
+    prods.sort(compareProdID);
+    console.log(JSON.stringify(prods));
+
+    function compareProdID(prod1,prod2){
+        if (prod1.prodid>prod2.prodid)
+         return 1;
+         if (prod1.prodid==prod2.prodid)
+         return 0;
+         if (prod1.prodid<prod2.prodid)
+         return -1;
+    }
+</script>
+</html>

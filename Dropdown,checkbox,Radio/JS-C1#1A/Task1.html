@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="selectNumber">
+        <option>Choose a number</option>
+    </select>
+    <script>
+        var select = document.getElementById("selectNumber");
+        var dates = [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020];
+       
+        for(var i = 0; i < dates.length; i++) {
+        var date = dates[i];
+       var el = document.createElement("option");
+      el.textContent = date;
+      el.value = date;
+       select.appendChild(el);
+}
+    </script>
+</body>
+</html>

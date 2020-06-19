@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style002.css">
+    <title>Document</title>
+</head>
+<body>
+    Name :  <input type="text" id="name1"><br/>
+    Age : <input type="text" id="age1"><br/>
+    city : <input type="text" id="city1"><br/>
+    Technology : <input type="text" id="tech1"><br/>
+    <button id="btn1" onclick="add()">Add Person</button>
+    <div id="persons"></div>
+</body>
+<script>
+    let person1 = {"name":"Jack","age":28,"city":"London","tech":"Androide"};
+    let person2 = {"name":"Jack","age":28,"city":"Peris","tech":"React"};
+    let person3 = {"name":"Jack","age":28,"city":"New York","tech":"Angular"};
+    let person4 = {"name":"Jack","age":28,"city":"Delhi","tech":"Spring"};
+    let persons = [person1,person2,person3,person4];
+    showPersons();
+     
+ 
+     
+    function add(){
+          let name1 = document.getElementById("name1");
+          let age1 = document.getElementById("age1");
+          let city1 = document.getElementById("city1");
+          let tech1 = document.getElementById("tech1");
+          let prod = {"name":name1.value,"age":age1.value,"city":city1.value,"tech":tech1.value};
+           persons.push(prod);
+           showPersons();
+      }
+
+
+    function showPersons(){
+       let length = persons.length;
+       let string = "";
+       for(var count = 0;count<length;count++){
+           let pr = persons[count];
+           let name1 = "<div class = 'cell22'>"+pr.name+"</div>";
+           let age1= "<div class = 'cell11'>"+pr.age+"</div>";
+           let city1 = "<div class = 'cell22'>"+pr.city+"</div>";
+           let tech1= "<div class = 'cell22'>"+pr.tech+"</div>";
+          
+           let row = "<div>"+name1+age1+city1+tech1+"</div>";
+           string = string+row;
+       }
+       let table = document.getElementById("persons");
+       table.innerHTML =string;
+   }
+</script>
+</html>

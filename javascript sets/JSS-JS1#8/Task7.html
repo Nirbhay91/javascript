@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arrays = [10,20,30,40];
+        var len = arrays.length;
+      var sum =0;
+      
+      for(var count=0;count<len;count++){
+          var x= arrays[count];
+          sum = sum+x;
+         var sum1 = sum+"#";
+         if(sum%4==0){
+             var sum2 = sum1+"A4";
+         } 
+         if(sum%5==0){
+             var sum2 = sum1+"B5";
+         }  
+         if(sum%20==0){
+             var sum2 = sum1+"C20";
+         }                
+      }
+      console.log(sum2)
+    </script>
+</body>
+</html>

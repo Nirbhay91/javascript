@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Payment Option
+    <select id="payopts" onchange="paychange(this)">
+        <option disabled selected>Select</option>
+        <option value="CC">Credit Card</option>
+        <option value="NET">Net Banking</option>
+        <option value="WLT">Wallet</option>
+    </select>
+    <br/>
+    <input type="checkbox" id="cbox1" onchange="address()">Delivery address same as billing address
+    <br/>
+         Delivery Tyme<br/>
+         <input type="radio" name="deltime" value="Morning Slot" id="dt1" onchange="timeslot(this)">10AM-3PM
+         <input type="radio" name="deltime" value="Evening Slot" id="dt2" onchange="timeslot(this)" >3PM-7PM<br/>
+         <script>
+             function paychange(ele){
+                 var payoption = ele.value;
+                 console.log("Payment Option :",payoption);
+             }
+         </script>
+</body>
+</html>

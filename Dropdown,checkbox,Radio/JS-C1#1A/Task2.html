@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="selectNumber">
+        <option>Choose a name</option>
+    </select>
+    <br/>
+    <button onclick="showSelected()" id="showselected">show Selected</button>
+    <br/>
+    <div id="product"></div>
+</body>
+    <script>
+           var select = document.getElementById("selectNumber");
+           var coustomer_detail = [{"name":"Jack","accno":"J2341"},{"name":"Martha","accno":"M44311"},
+                                   {"name":"William","accno":"W0021"},{"name":"Amy","accno":"A1444"},
+                                    {"name":"Tim","accno":"T4331"},{"name":"Donald","accno":"D8815"}];
+    
+        console.log(coustomer_detail);
+        var len = coustomer_detail.length;
+         showDetail();
+        function showDetail(){
+            var str = "";
+            for(var i = 0;i<len;i++){
+                var opt = document.createElement('option');
+    opt.value = coustomer_detail[i].name;
+    opt.innerHTML = coustomer_detail[i].accno;
+    select.appendChild(opt);
+        }
+        }
+       
+        function showSelected(){
+        var dd = document.getElementById("selectNumber").value;
+        console.log(dd);
+       showDetail();
+        // dd.innerHTML = dd;
+      
+        }
+      
+    </script>
+
+</html>

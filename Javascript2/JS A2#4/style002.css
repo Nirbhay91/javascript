@@ -1,0 +1,19 @@
+.button1{
+    background-color:#CC0000;
+    color: white;
+    text-align: center;
+}
+.button1:hover{
+    background-color: #880000;
+}
+.text{
+    background-color: #0000AA;
+    color: white;
+    text-align: center;
+}
+.text:hover{
+    background-color: #0000FF;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}

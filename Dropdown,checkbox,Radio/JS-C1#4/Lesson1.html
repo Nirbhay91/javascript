@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="btn1()">From1</button>
+    <button onclick="btn2()">From2</button><br/>
+</body>
+<script>
+    function btn1(){
+        var form1 = document.getElementById("form1");
+        var form2 = document.getElementById("form2");
+        if(form2!=null){
+            document.body.removeChild(form2);
+        }
+        if(form1!=null){
+            return;
+        }
+        var ele = document.createElement("div");
+    ele.setAttribute("id","form1");
+    var text1 = document.createElement("input");
+    text1.type ="text"
+    text1.setAttribute("id","txt01");
+    text1.setAttribute("placeholder","Enter name");
+    ele.appendChild(text1);
+    var btn = document.createElement("button");
+    btn.setAttribute("onclick","display1()");
+    btn.setAttribute("class","mybtnstyle");
+    btn.innerText = "Get Name";
+    ele.appendChild(btn);
+    document.body.appendChild(ele);    
+    }
+    
+    function btn2(){
+        var form1 = document.getElementById("form1");
+        var form2 = document.getElementById("form2");
+        if(form1!=null){
+            document.body.removeChild(form1);
+        }
+        if(form2!=null){
+            return;
+        }
+        var ele = document.createElement("div");
+    ele.setAttribute("id","form1");
+    var text1 = document.createElement("input");
+    text1.type ="text"
+    text1.setAttribute("id","txt01");
+    text1.setAttribute("placeholder","Enter Email");
+    ele.appendChild(text1);
+    var btn = document.createElement("button");
+    btn.setAttribute("onclick","display1()");
+    btn.setAttribute("class","mybtnstyle");
+    btn.innerText = "Get Email";
+    ele.appendChild(btn);
+    document.body.appendChild(ele);    
+    }
+   
+</script>
+</html>

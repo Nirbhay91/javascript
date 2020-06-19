@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button  onclick="showText()">Show Text</button>
+    <br/>
+    <div id="text"></div>
+</body>
+<script>
+    function showText(){
+        var ele = document.getElementById("text");
+        var str = "1234";
+         var n1 = +str;
+        ele.innerHTML= n1;
+    }
+</script>
+</html>

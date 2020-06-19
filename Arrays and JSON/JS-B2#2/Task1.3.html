@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style003.css">
+</head>
+<body>
+    
+</body>
+<script>
+  var headers = ["Products","code","price","quantity"];
+  var products = ["Pepsi","Coke","5star","Maggi","Games"];
+    var productsCodes = ["P235","C159","S341","M055","G732"];
+    var price = [15,18,12,10,8];
+    var quantity = [30,27,10,40,12];
+     var len = headers.length;
+     var string ="";
+    
+     var arry1 = headers[0];
+     var arry2 = headers[1];
+     var arry3 = headers[2];
+     var arry4 = headers[3]
+      var headers1 = "<div1 class ='cell'>"+arry1+"</div>";
+        var headers2 = "<div2 class ='cell'>"+arry2+"</div>";
+          var headers3 = "<div3 class ='cell15'>"+arry3+"</div>";
+        var headers4 = "<div4 class ='cell15'>"+arry4+"</div>";
+      
+     for(count =0;count<len;count++){
+    
+        var products1= "<div class='cell35'>"+products[count]+"</div>";
+        var productsCode1 = "<div class ='cell35'>"+productsCodes[count]+"</div>";
+        var price1 = "<div class = 'cell13'>"+price[count]+"</div>";
+       var quantity1  = "<div class = 'cell13'>"+quantity[count]+"</div>";
+   
+      
+      
+       var row = "<div>"+products1+productsCode1+price1+quantity1+"</div>";
+       string = string+row;
+     
+     
+     }
+     var element = document.createElement("div1");
+     
+     element.innerHTML = headers1;
+     document.body.appendChild(element);
+
+     var element = document.createElement("div2");
+     
+     element.innerHTML = headers2;
+     document.body.appendChild(element);
+
+     var element = document.createElement("div3");
+     
+     element.innerHTML = headers3;
+     document.body.appendChild(element);
+
+     var element = document.createElement("div4");
+     
+     element.innerHTML = headers4;
+     document.body.appendChild(element);
+    
+     console.log(string);
+    var element = document.createElement("div");
+    element.innerHTML = string;
+    document.body.appendChild(element);
+    
+    
+</script>
+</html>

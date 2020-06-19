@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [25,8,15,4,50,10,9,100];
+        var numbers1 = numbers.filter(n1 => filterBig(n1));
+        console.log(numbers);
+        console.log("Filter big number :",numbers1);
+        var mults = numbers.filter(n => filterMult(n));
+        console.log("Filter Even number :",mults);
+        var largemults = numbers1.filter(n => filterMult(n));
+        console.log("Filter large Even number :",largemults);
+
+        function filterBig(num1){
+            if(num1>=10)
+            return true;
+            else
+            return false;
+        }
+
+        function filterMult(num){
+            var rem = num%2;
+            if(rem==0)
+            return true;
+            else
+            return false;
+        }
+    </script>
+</body>
+</html>

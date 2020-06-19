@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+   
+</body>
+<script>
+     var names = ["Jack","Mary","Bob","Steves"];
+    var age = [28,32,35,26];
+    var cities = ["Lendon","Paris","New york","Delhi"];
+     var len = names.length;
+      var string = "";
+   
+   for(var count = 0;count<len;count++){
+    var name1 = "<div class='cell'>"+names[count]+"</div>";
+       var age1 = "<div class ='cell'>"+age[count]+"</div>";
+       var city = "<div class = 'cell'>"+cities[count]+"</div>";
+       var row = "<div>"+name1+age1+city+"</div>";
+       string = string+row;
+   }
+      console.log(string)
+      var element = document.createElement("div");
+      element.innerHTML = string;
+      document.body.appendChild(element);
+</script>
+</html>

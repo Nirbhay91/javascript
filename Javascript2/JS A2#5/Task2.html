@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="style002.css">
+    <title>Document</title>
+</head>
+<body>
+    <button class="Add1" onclick=" Add1()"> Add 1 to x</button>
+    <br/>
+   
+        
+ <div class="text1" id="text1"></div>
+
+</body>
+<script>
+    var x=0
+    function Add1(){ 
+        var ele = document.getElementById("text1");
+       x++;
+       if(x>0&&x<2){
+        ele.innerHTML="x"+"="+0;
+        ele.className ="text1";
+       }  
+       if(x>3&&x<5){
+            ele.innerHTML="x"+"="+3;
+            ele.className ="text2";
+        } 
+        if(x>5&&x<10){
+            ele.innerHTML="x"+"="+6;
+            ele.className ="text3";
+        } 
+        if(x>10){
+          ele.innerHTML="x"+"="+11;
+          ele.className ="text4";
+      } 
+
+    }
+   
+    
+</script>
+</html>

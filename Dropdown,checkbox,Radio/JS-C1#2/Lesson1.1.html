@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    What do know best <br/>
+    <input type="checkbox"  id="cb1" >Javascript<br/>
+    <input type="checkbox" id="cb2">React<br/>
+    <input type="checkbox"  id="cb3">Angular<br/>
+    <button onclick="showCheck()">Show Check</button>
+</body>
+<script>
+    function showCheck(){
+        var tech1 = document.getElementById("cb1").checked;
+        console.log(tech1);
+        var tech2 = document.getElementById("cb2").checked;
+        console.log(tech2)
+        var tech3 = document.getElementById("cb3").checked;
+        console.log(tech3);
+        
+    }
+</script>
+</html>

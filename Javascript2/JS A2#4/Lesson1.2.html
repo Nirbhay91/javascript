@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <link rel="stylesheet" href="style002.css">
+    <title>Document</title>
+</head>
+<body>
+    <button class="button1" onclick="showText()">Show Text</button>
+    <br/>
+    <button class="button1"  onclick="changeText()">change Text</button>
+    <br/>
+    <div class="text" id="text"></div>
+
+</body>
+<script>
+    function showText(){
+      var ele = document.getElementById("text");
+      ele.innerHTML=" showing text on button click";
+  }
+  function changeText(){
+      var ele = document.getElementById("text");
+      ele.innerHTML=" Changing the text";
+  }
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text1"><br/>
+    <button onclick="getText()">Get Text</button><br/>
+</body>
+<script>
+    function getText(){
+        var inputField = document.getElementById("text1");
+        var  inputValue = inputField.value;
+        console.log("value of text field=",inputValue);
+        var ele = document.createElement("div");
+        ele.innerHTML = inputValue;
+        document.body.appendChild(ele);
+    }
+</script>
+</html>

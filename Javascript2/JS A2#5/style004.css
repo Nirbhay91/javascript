@@ -1,0 +1,24 @@
+.pepsi{
+    background-color: #0000ff;
+    color: white;
+}
+.cola{
+    background-color: 	#DD0000;
+    color: white;
+ 
+}
+.pepsi-text{
+    background-color: 	#0000ff;
+    color: white;
+    text-align: center;
+}
+.cola-text{
+    background-color: #DD0000;
+    color: white;
+    text-align: center;
+}
+.text{
+    background-color: #444444;
+    color: white;
+    text-align: center;
+}

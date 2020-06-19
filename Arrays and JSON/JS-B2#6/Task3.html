@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Name: <input type="text" id="name"><br/>
+    Empid: <input type="text" id="empid"><br/>
+    Email: <input type="text" id="email"><br/>
+     <button onclick="detail()">Detail</button>
+</body>
+<script>
+    var detail1 = []
+    function detail(){
+        var name1 = document.getElementById("name").value;
+        var empid1 = document.getElementById("empid").value;
+        var email1 = document.getElementById("email").value;
+        var details = {"Name":name1,"Empid":empid1,"Email":email1};
+        detail1.push(details);
+        console.log(detail1);
+
+    }
+</script>
+</html>

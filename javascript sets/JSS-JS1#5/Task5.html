@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var string = "JobReadyJava";
+        var len = string.length;
+        var string1 = "";
+        var string2 ="";
+        console.log("input",string)
+        for(var count = 0;count<len;count++){
+           var ch = string.charAt(count);
+           
+           if(count%2==0)
+           string1 = string1+ch;
+           if(count%2!=0)
+           string2 = string2+ch;
+        
+       
+         
+        }
+       
+        console.log("odd :",string2);
+        console.log("even :",string1);
+    </script>
+</body>
+</html>

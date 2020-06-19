@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style001.css">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="style()">style1</button>
+    <br/>
+    
+</body>
+<div class="div1">
+    <div class="divcell">STYLE1:Padding=20, Marging=20, border=5</div>
+
+</div>
+<div class="div2">
+    <div class="divcell">STYLE2:Padding=20, Marging=20, border=5</div>
+
+</div>
+<div class="div3">
+    <div class="divcell">STYLE3:Padding=20, Marging=20, border=5</div>
+
+</div>
+<script>
+    function style(){
+        var ele = document.createElement("div");
+        ele.className="divcell";
+
+    }
+</script>
+</html>

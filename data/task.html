@@ -1,0 +1,2513 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Data-Driven Dashboard for Shaping Tomorrow">
+        <meta name="author" content="Coderthemes">
+
+        <!-- App Favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App title -->
+        <title>Data Intelligence Dashboard</title>
+        <!-- DataTables -->
+        <link href="assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+
+        <!-- App CSS -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+        <link href="assets/css/core.css" rel="stylesheet" type="text/css" >
+        <link href="assets/css/components.css" rel="stylesheet" type="text/css" >
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" >
+        <link href="assets/css/pages.css" rel="stylesheet" type="text/css" >
+        <link href="assets/css/menu.css" rel="stylesheet" type="text/css" >
+        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" >
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        
+        <!--<link href="assets/css/motionchart.css" rel="stylesheet" type="text/css" />-->
+        <!-- <link href="assets/plugins/ion-rangeslider/ion.rangeSlider.css" rel="stylesheet" type="text/css">
+        <link href="assets/plugins/ion-rangeslider/ion.rangeSlider.skinFlat.css" rel="stylesheet" type="text/css"> -->
+        
+        <style>
+            .tooltip1 {
+                position: relative;
+                display: inline-block;
+                visibility: visible;
+            }
+            .tooltiptext {
+                visibility: hidden;
+                min-width: 120px;
+                width:300px;
+                background-color: white;
+                color: #000;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
+                position: absolute;
+                z-index: 1;
+                top: 150%;
+                left: 50%;
+                margin-left: -140px;
+            }
+            .tooltiptext::after {
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: transparent transparent black transparent;
+            }
+            .tooltip1:hover .tooltiptext {
+                visibility: visible;
+            }
+            .ORtooltiptext {
+                visibility: hidden;
+                min-width: 120px;
+                width:auto;
+                background-color: white;
+                color: #000;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
+                position: absolute;
+                z-index: 1;
+                top: 150%;
+                left: 50%;
+                margin-left: -140px;
+            }
+            .ORtooltiptext::after {
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 80%;
+                margin-left: 0px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: transparent transparent black transparent;
+            }
+            .tooltip1:hover .ORtooltiptext {
+                visibility: visible;
+            }
+            .custom-btn{
+                border:none; 
+                color: #171515 !important;
+                background-color: #ffffff !important;
+                border-radius: 2px;
+                padding: 6px 14px;
+            }
+            .custom-btn:hover{background-color: #e4e7ea !important;}
+            .custom-btn:visited{background-color: #e4e7ea !important;}
+            .custom-btn-active{background-color: #e4e7ea !important;}
+            .answerBottomYesNo input[type="radio"]{
+    margin-right:10px;
+}
+            .itemeditform .message {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                left: auto;
+                z-index: 9999;
+                padding: 5px;
+                transform: none;
+            }
+            .itemeditform label {
+                display: block;
+            }
+            #iispeed_poweredby div  {
+                font-size: 10px !important;
+                font-family: Arial, Helvetica, sans-serif !important;
+            }
+            #countrydiv .label-input-label{
+                width: 85%;
+            }
+
+            #img {
+				    display: block;
+				    margin-left: auto;
+				    margin-right: auto;
+				    width: 40%;
+}
+
+        </style>
+        <style type="text/css">
+           #motion_countrydiv .charts-combobox input{
+                width: 85%;
+            }
+            .dataTable th, .dataTable td {
+                   width: 100%;
+                font-size: 12px;
+            }
+            #Select1 {
+                width: 90%;
+            }
+            #sectorlist {
+                width: 90%;
+            }
+            #regionlist {
+                width: 90%;
+            }
+            #pestlelist {
+                width: 90%;
+            }
+            #topiclist {
+                width: 90%;
+            }
+            .buttonyear {
+                background-color: #ADD8E6;
+                border: none;
+                color: black;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+          #motion_chart_div embed{
+              width: 950px;
+          }
+
+		  .switch {
+			  position: relative;
+			  display: inline-block;
+			  width: 30px;
+			  height: 17px;
+			}
+
+			.switch input {display:none;}
+
+			.slider {
+			  position: absolute;
+			  cursor: pointer;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background-color: #ccc;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			.slider:before {
+			  position: absolute;
+			  content: "";
+			  height: 13px;
+			  width: 13px;
+			  left: 2px;
+			  bottom: 2px;
+			  background-color: white;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			input:checked + .slider {
+			  background-color: #2196F3;
+			}
+
+			input:focus + .slider {
+			  box-shadow: 0 0 1px #2196F3;
+			}
+
+			input:checked + .slider:before {
+			  -webkit-transform: translateX(12px);
+			  -ms-transform: translateX(12px);
+			  transform: translateX(12px);
+			}
+
+			/* Rounded sliders */
+			.slider.round {
+			  border-radius: 17px;
+			}
+
+			.slider.round:before {
+			  border-radius: 50%;
+			}
+        </style>
+        <style>
+            .axis path,
+            .axis line {
+                fill: none;
+                stroke: black;
+                shape-rendering: crispEdges;
+            }
+
+            .axis text {
+                font-family: sans-serif;
+                font-size: 11px;
+            }
+
+            .cell {
+                cursor: pointer;
+            }
+
+            .tooltipbackground {
+                background-color: #0d0d0f;
+            }
+
+            .tooltip1 {
+                position: relative;
+                display: inline-block;
+                visibility: visible;
+            }
+
+            .tooltiptext {
+                visibility: hidden;
+                min-width: 120px;
+                width: 300px;
+                background-color: white;
+                color: #000;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
+                position: absolute;
+                z-index: 1;
+                top: 150%;
+                left: 50%;
+                margin-left: -140px;
+            }
+
+            .tooltiptext::after {
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: transparent transparent black transparent;
+            }
+
+            .tooltip1:hover .tooltiptext {
+                visibility: visible;
+            }
+
+            .list-unstyled li{
+                float: left;
+
+            }
+            
+            
+        </style>
+
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+        
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="assets/js/RadarChart.js"></script>
+        
+        <script type="text/javascript" src="assets/js/stats-array.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+        <!--<script src="assets/js/jquery3.js"></script>-->
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!--Datatables-->
+        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="assets/plugins/datatables/dataTables.bootstrap.js"></script>
+        <!-- <script src="assets/js/heatMap.js"></script> -->
+        
+
+        <!--Datatable init js-->
+        <script src="assets/js/datatables.init.js"></script>
+        <!--Select2 js-->
+        <!--<script src="assets/plugins/select2/dist/js/select2.min.js" type="text/javascript"></script>-->
+        <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>  -->
+        <!-- range slider js -->
+        <!-- <script src="assets/plugins/ion-rangeslider/ion.rangeSlider.min.js"></script> -->
+    	<!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->   	
+   		
+   		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <!-- <script type="text/javascript">
+
+            google.load('visualization', '1', {
+        'packages':['corechart','controls', "table", "motionchart"]
+       
+      });
+           
+        </script> -->
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyCJoH8nSduQWdqRRzw06_DoTCgl7iVhte4" >
+        
+            //AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY old
+            //AIzaSyCJoH8nSduQWdqRRzw06_DoTCgl7iVhte4 new
+        </script> 
+        <!-- <script >
+            setTimeout(function(){ google.charts.load('current', {
+        packages:['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        mapsApiKey: 'AIzaSyCJoH8nSduQWdqRRzw06_DoTCgl7iVhte4'
+      }); }, 3000);
+                    
+      
+        </script> -->
+        <script >
+                    google.charts.load('current', {
+        packages:['motionchart','controls','table','corechart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        mapsApiKey: 'AIzaSyCJoH8nSduQWdqRRzw06_DoTCgl7iVhte4'
+      });
+        </script>
+   		
+
+
+        <script type="text/javascript">
+
+            function confidencecalc()
+            {
+                //document.getElementById('95conf').checked=true;
+                if(document.getElementById('95conf').checked)
+                    var temp1=stdarr.stdDeviation(0.95);
+
+                if(document.getElementById('90conf').checked)
+                    var temp1=stdarr.stdDeviation(0.9);
+                if(document.getElementById('99conf').checked)
+                    var temp1=stdarr.stdDeviation(0.99);
+                if(temp1!== undefined){
+                    document.getElementById('standard').innerHTML=" <p class='tooltip1'>CL<span class='tooltiptext'>The confidence level is the probability that the value of a parameter falls within a specified range of values</span></p> = "+temp1['confidence']*100+"% | "
+                        +"<p class='tooltip1'> &mu;<span class='tooltiptext'>The mean is the average of the numbers: a calculated 'central' value of a set of numbers</span></p> = "+parseFloat(stdarr.mean()).toFixed(1)
+                        +" | <p class='tooltip1'>&sigma;<span class='tooltiptext'>The standard deviation is a measure of how spread out numbers are</span></p> = "+parseFloat(stdarr.stdDeviation()).toFixed(1)
+                        +" | <p class='tooltip1'>Lower<span class='tooltiptext'>Minimum estimated value of standard deviation</span></p> = "+parseFloat(temp1['lower']).toFixed(1)
+                        +" | <p class='tooltip1'>Upper<span class='tooltiptext'>Maximum estimated value of standard deviation</span></p> = "+parseFloat(temp1['upper']).toFixed(1);
+                }
+
+            }
+
+            function removeTopmostBAr() {
+                //document.getElementById('topmostbar').style.display='none';
+                document.getElementById('motionTopbar').style.marginTop='0px';
+                document.getElementById('radarTopbar').style.marginTop='0px';
+                document.getElementById('heatTopbar').style.marginTop='0px';
+                var _scrollTop = $(document).scrollTop();
+                if(_scrollTop<50){
+                    document.getElementById('topmostbar').style.display='block';
+                    document.getElementById('motionTopbar').style.marginTop='50px';
+                    document.getElementById('radarTopbar').style.marginTop='50px';
+                    document.getElementById('heatTopbar').style.marginTop='50px';
+                    document.getElementById('motionTopbar').style.boxShadow='0px 0px 0px';
+                    document.getElementById('radarTopbar').style.boxShadow='0px 0px 0px';
+                    document.getElementById('heatTopbar').style.boxShadow='0px 0px 0px';
+                }else if(_scrollTop>0){
+                    $('topmostbar').hide();
+                    document.getElementById('motionTopbar').style.boxShadow='0px 0.5px 2px';
+                    document.getElementById('radarTopbar').style.boxShadow='0px 0.5px 2px';
+                    document.getElementById('heatTopbar').style.boxShadow='0px 0.5px 2px';
+                }
+            }
+
+        </script>
+
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+        <script>
+
+                zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+                ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+        
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+        <link href='//www.zingchart.com/css/zcDocs.css' rel='stylesheet' type='text/css'>
+        <script src="//www.zingchart.com/scripts/zcDocs.js"></script>
+
+        <script>
+//            shapingTomorrowDataUrl = '/miscellaneous/motiongraph/assets/data/jsondata.json';
+            shapingTomorrowDataUrl = 'assets/data/jsondata.json';
+            
+//            shapingTomorrowDataUrl = 'https://demo.shapingtomorrow.com/miscellaneous/blackcoffer/jsontest.cfm';
+            myData=null;
+
+
+
+
+        </script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        
+   		<script src="assets/js/heatMap.js"></script>
+        <script src="assets/js/crossImpact.js"></script>
+   		
+
+        <script type="text/javascript">
+            
+ function motion_confidencecalc(){
+var tempm;
+var temp1Confidence;
+    if(document.getElementById('motion_95conf').checked){
+         tempm=motion_stdarr.stdDeviation(0.95);
+       // console.log('95 confidence checked');
+         temp1Confidence = 0.95;
+    }else if(document.getElementById('motion_90conf').checked){
+         temp1Confidence = 0.90;
+         tempm=motion_stdarr.stdDeviation(0.9);
+    }else if(document.getElementById('motion_99conf').checked){
+         tempm=motion_stdarr.stdDeviation(0.99);
+         temp1Confidence = 0.99;
+    }
+
+    if(tempm !== undefined){
+    document.getElementById('motion_standard').innerHTML=" <p class='tooltip1'>CL<span class='tooltiptext'>The confidence level is the probability that the value of a parameter falls within a specified range of values</span></p> = "+temp1Confidence*100+"% | "
+        +"<p class='tooltip1'> &mu;<span class='tooltiptext'>The mean is the average of the numbers: a calculated 'central' value of a set of numbers</span></p> = "+parseFloat(motion_stdarr.mean()).toFixed(1)
+        +" | <p class='tooltip1'>&sigma;<span class='tooltiptext'>The standard deviation is a measure of how spread out numbers are</span></p> = "+parseFloat(stdarr.stdDeviation()).toFixed(1)
+        +" | <p class='tooltip1'>Lower<span class='tooltiptext'>Minimum estimated value of standard deviation</span></p> = "+parseFloat(tempm['lower']).toFixed(1)
+        +" | <p class='tooltip1'>Upper<span class='tooltiptext'>Maximum estimated value of standard deviation</span></p> = "+parseFloat(tempm['upper']).toFixed(1);
+}
+
+
+    
+
+
+
+}
+        </script>
+   		
+
+    </head>
+    <body  class="fixed-left" >
+        <!-- Begin page -->
+        <!-- <div id="wrapper">
+            <div id="topmostbar" style="background: linear-gradient(#e7e7e7,#ffffff)">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-default" style="background: linear-gradient(#e7e7e7,#ffffff)">
+                        <div class="container-fluid">
+                            <div class="navbar-header" style="font-weight: bolder">
+                                <a class="navbar-brand" href="https://shapingtomorrow.com/">Comparisons</a>
+                            </div>
+                            <ul class="nav navbar-nav">
+                                <li class="active" id="radar"><a href="#">Radar</a></li>
+                                <li id="motion"><a href="#">Graph-It</a></li>
+                                <li id="heat"><a href="#">Heatmap</a></li>
+                                <li id="geo"><a href="#">Geographies</a></li>
+                                <li id="word"><a href="#">Word-Cloud</a></li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div> -->
+            <!-- Top Bar Start -->
+            
+               
+
+                <!-- <div class="navbar navbar-default" role="navigation" > -->
+ 
+             <div class="content">
+                <!-- <div class="navbar navbar-default" role="navigation" > -->
+                    <div class="container" id="heatTopbar" style="margin-top: 0px;">
+                        <div class="navbar-header">
+                            <ul class="nav  navbar-nav navbar-left navbar-btn navbar-link">
+                                <li><h3>Heatmap</h3></li>
+                            </ul>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#heat_mynav">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div></b>
+                        <div class="collapse navbar-collapse" id="heat_mynav">
+                            <ul class="nav navbar-nav navbar-right navbar-btn navbar-link">
+                                <li>
+                                    <a href="javascript:void(0);" id="heat_view_link">
+                                        <button class="custom-btn custom-btn-active">Heat View <span class="glyphicon glyphicon-fire"
+                                                                                               style="padding-left: 2px"></span>
+                                        </button>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="javascript:void(0);" id="cross_impact_lnk">
+                                        <button class="custom-btn">Cross Impact</button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" id="heat_guide_lnk">
+                                        <button class="custom-btn">Quick Guide</button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" id="heat_feedback_lnk">
+                                        <button class="custom-btn">Feedback</button>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- end container -->
+                </div>
+            </div>
+        </b>
+            <div class="content-page" id="heatContentPage" style="margin-left: 10px;margin-right: 10px;">
+                <div class="content" style="margin-top: 0px;">
+                    <div class="container" id="heat_container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="card-box p-b-0">
+                                    <div class="body">
+                                        <div style="text-align: center;" id="heat_standard" class="m-b-10"></div>
+                                        <div align="center">
+                                            <div id="heat_chart"
+                                                 style="width: 100%;min-height: 500px;max-height:650px;text-align: center;overflow-x: scroll; overflow-y: scroll">
+                                                <div id="heat_Loading">
+                                                    <img src="assets/images/loader.gif"><br><br><br>
+                                                     <div id = 'athena_heat' style ='text-align: center;'>
+                                                	I make many calculations here and then render them as year ranges, filters, and selector options.<br>
+											Thanks for your patience while I prepare your graphic,<br>
+												Athena
+
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                       
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card-box">
+                                            <div id="heat_change1" class="m-t-0"><h3>Click on a node</h3></div>
+                                        </div>
+                                        <div class="card-box">
+                                            <div class="row">
+                                                <h3 class="header-title m-t-0 m-b-5">Year Range <span id="year_value"></span>
+
+                                         <span style="float:right">
+                                            <label class="switch">
+                                            <input id = 'toggle_heat' type="checkbox" onchange ="activate_year_heat()">
+                                            <span class="slider round"></span>
+                                            </label>
+                                        </span>
+                                                </h3>
+                                                <br>
+                                                <div id="heat_range" style="margin-bottom: 25px"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-box">
+                                            <div id="heat_xy_coordinates">
+                                                <div class="row">
+                                                    <h4><strong> Coordinates </strong></h4>
+                                                    <div class="col-sm-6">
+                                                        <h5><strong>Horizontal axis</strong></h5>
+                                                        <div id="heat_x_coordinate">
+                                                            <form>
+                                                                <select name="heat_x_coordinate_list" id="heat_x_coordinate_list"
+                                                                        style="width: 100%;text-transform: capitalize"
+                                                                        onchange="filteringData();chartload();">
+                                                                    <option value="topic">topic</option>
+                                                                    <option value="region">region</option>
+                                                                    <option value="pestle">pestle</option>
+                                                                    <option value="sector">sector</option>
+                                                                    <option value="country" selected>country</option>
+                                                                    <option value="city">city</option>
+                                                                </select>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h5><strong>Vertical axis</strong></h5>
+                                                        <div id="heat_y_coordinate">
+                                                            <form>
+                                                                <select name="heat_y_coordinate_list" id="heat_y_coordinate_list"
+                                                                        style="width: 100%;text-transform: capitalize"
+                                                                        onchange="filteringData();chartload();">
+                                                                    <option value="topic">topic</option>
+                                                                    <option value="region">region</option>
+                                                                    <option value="pestle">pestle</option>
+                                                                    <option value="sector" selected>sector</option>
+                                                                    <option value="country">country</option>
+                                                                    <option value="city">city</option>
+                                                                </select>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-8">
+                                        <div class="card-box">
+                                            <h3 class="header-title m-t-0 m-b-5">Filters</h3>
+                                            <div id="heat_filters">
+                                                <h4 id="heat_filter1_heading" style="text-transform: capitalize">Topic</h4>
+                                                <form>
+                                                    <select name="heat_filter1_selector" id="heat_filter1_selector"
+                                                            onchange="onSelectedFilter('filter1'); chartload();" style="width: 80%">
+                                                        <option value="All" selected>All</option>
+                                                    </select>
+                                                </form>
+                                                <h4 id="heat_filter2_heading" style="text-transform: capitalize">Pestle</h4>
+                                                <form>
+                                                    <select name="heat_filter2_selector" id="heat_filter2_selector"
+                                                            onchange="onSelectedFilter('filter2');chartload();" style="width: 80%">
+                                                        <option value="All" selected>All</option>
+                                                    </select>
+                                                </form>
+                                                <h4 id="heat_filter3_heading" style="text-transform: capitalize">Country</h4>
+                                                <form>
+                                                    <select name="heat_filter3_selector" id="heat_filter3_selector"
+                                                            onchange="onSelectedFilter('filter3');chartload();" style="width: 80%">
+                                                        <option value="All" selected>All</option>
+                                                    </select>
+                                                </form>
+                                                <h4 id="heat_filter4_heading" style="text-transform: capitalize">City</h4>
+                                                <form>
+                                                    <select name="heat_filter4_selector" id="heat_filter4_selector"
+                                                            onchange="onSelectedFilter('filter4');chartload();" style="width: 80%">
+                                                        <option value="All" selected>All</option>
+                                                    </select>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <div class="card-box">
+
+                                            <h3 class="header-title m-t-0 m-b-5">Measures</h3>
+
+                                            <form>
+                                                <select name="heat_measures_selector" id="heat_measures_selector"
+                                                        onchange="filteringData();chartload()" style="width: 100%">
+                                                    <option value="intensity" selected>Intensity</option>
+                                                    <option value="likelihood">Likelihood</option>
+                                                    <option value="relevance">Relevance</option>
+                                                </select>
+
+                                            </form>
+
+                                        </div>
+
+                                        <div class="card-box">
+
+                                            <h3 class="header-title m-t-0 m-b-5">Confidence</h3>
+
+                                            <input type="radio" name="conf" id="heat_90conf"
+                                                   onchange="filteringData();chartload();"><span
+                                                style="padding-left: 5px">90%</span><br>
+
+                                            <input type="radio" name="conf" id="heat_95conf"  onchange="filteringData();chartload();" checked
+                                                   ><span
+                                                style="padding-left: 5px">95%</span><br>
+
+                                            <input type="radio" name="conf" id="heat_99conf"
+                                                   onchange="filteringData();chartload();"><span
+                                                style="padding-left: 5px;">99%</span><br>
+                                        </div>
+                                        <div class="card-box">
+                                            <h3 class="header-title m-t-0 m-b-5 tooltip1">SWOT</h3>
+                                            <div id="heat_riskoppdiv">
+                                                <form>
+                                                    <select name="heat_riskopp" id="heat_riskopp" style="width: 100%"
+                                                            onchange="heatRiskopp();chartload();">
+                                                        <option value="All" selected>All</option>
+                                                        
+                                                        <option value="Strength">Strength</option>
+                                                        <option value="Weakness">Weakness</option>
+                                                        <option value="Opportunity">Opportunity</option>
+                                                        <option value="Threat">Threat</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div id="heat_topTenShow"></div>
+                            <br>
+                            <div class="col-sm-7 five-three">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="#" id="heat_link0" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-custom" data-plugin="counterup" id="heat_text0"></h4>
+                                                    <h5 id="heat_num0"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="#" id="heat_link1" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-pink" data-plugin="counterup" id="heat_text1"></h4>
+                                                    <h5 id="heat_num1"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <a href="#" id="heat_link2" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-warning" data-plugin="counterup" id="heat_text2"></h4>
+                                                    <h5 id="heat_num2"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-5 five-two">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="#" id="heat_link3" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="heat_text3"></h4>
+                                                    <h5 id="heat_num3"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="#" id="heat_link4" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="heat_text4"></h4>
+                                                    <h5 id="heat_num4"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-7 five-three">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="#" id="heat_link5" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-custom" data-plugin="counterup" id="heat_text5"></h4>
+                                                    <h5 id="heat_num5"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="#" id="heat_link6" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-pink" data-plugin="counterup" id="heat_text6"></h4>
+                                                    <h5 id="heat_num6"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <a href="#" id="heat_link7" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-warning" data-plugin="counterup" id="heat_text7"></h4>
+                                                    <h5 id="heat_num7"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-5 five-two">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="#" id="heat_link8" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="heat_text8"></h4>
+                                                    <h5 id="heat_num8"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="#" id="heat_link9" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="heat_text9"></h4>
+                                                    <h5 id="heat_num9"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+
+                                <div class="card-box table-responsive">
+
+                                    <div class="col-sm-12">
+
+                                        <table id="heat_table" class="table table-striped table-bordered dataTable no-footer"
+                                               role="grid" aria-describedby="datatable_info">
+
+                                            <thead>
+
+                                            <tr>
+
+                                                <th> Title</th>
+
+                                                <th> Topic</th>
+
+                                                <th>Year</th>
+
+                                                <th>Intensity</th>
+
+                                                <th>Sector</th>
+
+                                                <th>Region</th>
+
+                                                <th>PESTLE</th>
+
+                                            </tr>
+
+                                            </thead>
+
+                                        </table>
+
+                                    </div>
+
+                                </div><!-- end col -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+               <!--  <div class="content-page" id="crossContentPage" style="margin-left: 10px;margin-right: 10px;">
+                <div class="content" style="margin-top: 0px;"> -->
+                    <div class="container" id="cross_container"  style="margin-top: 20px;display: none">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="card-box p-b-0">
+                                    <div class="body">
+                                        <div style="text-align: center;" id="cross_standard" class="m-b-10"></div>
+                                        <div align="center">
+                                            <div id="crossImpactChart" style="width: 100%;max-height: 650px;text-align: center;overflow-x: scroll; overflow-y: scroll; display:block;" >
+
+                                              <div id = 'cross_loading' style="width:100%;height:500px">
+                                                   <img src="assets/images/loader.gif" style="width:150px; margin:auto;display:block;"/><br><br><br>
+                                                     <div id = 'athena_cross' style ='text-align: center;'>
+                                                    I make many calculations here and then render them as year ranges, filters, and selector options.<br>
+                                            Thanks for your patience while I prepare your graphic,<br>
+                                                Athena
+
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                       
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card-box">
+                                            <div id="cross_Loading_change1" class="m-t-0"><h3>Click on a Cell</h3></div>
+                                        </div>
+                                        <div class="card-box">
+                                            <div id="cross_Loading_change2" class="m-t-0"><h3>Click on a Cell</h3></div>
+                                        </div>
+                                        <div class="card-box">
+                                            <div id="cross_coordinates">
+                                                    <h4><strong> Cross Impact </strong></h4>
+                                                            <form>
+                                                                <select name="cross_coordinate_list" id="cross_coordinate_list"
+                                                                        style="width: 100%;text-transform: capitalize"
+                                                                        onchange="cross_variable()">
+                                                                    
+                                                                    <option value="region">region</option>
+                                                                    <option value="pestle">pestle</option>
+                                                                    <option value="sector">sector</option>
+                                                                    <option value="country" selected>country</option>
+                                                                    <option value="city">city</option>
+                                                                </select>
+                                                            </form>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-box">
+                                            <div class="row">
+                                                <h3 class="header-title m-t-0 m-b-5">Year Range <span id="cross_year_value"></span>
+
+                                         <span style="float:right">
+                                            <label class="switch">
+                                            <input id = 'toggle_cross' type="checkbox" onchange ="activate_year_cross()">
+                                            <span class="slider round"></span>
+                                            </label>
+                                        </span>
+                                                </h3>
+                                                <br>
+                                                <div id="cross_range" style="margin-bottom: 25px"></div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="col-sm-8">
+                                        <div class="card-box">
+                                            <h3 class="header-title m-t-0 m-b-5">Filters</h3>
+                                            <div id="cross_filters">
+                                                <h4 id="cross_filter1_heading" style="text-transform: capitalize">Topic</h4>
+                                                <form>
+                                                    <select name="cross_filter1_selector" id="cross_filter1_selector"
+                                                            onchange="Filter_Cross()" style="width: 80%">
+                                                        <!-- <option value="All" selected>All</option> -->
+                                                    </select>
+                                                </form>
+                                                <h4 id="cross_filter2_heading" style="text-transform: capitalize">Pestle</h4>
+                                                <form>
+                                                    <select name="cross_filter2_selector" id="cross_filter2_selector"
+                                                            onchange="Filter_Cross()" style="width: 80%">
+                                                        <!-- <option value="All" selected>All</option> -->
+                                                    </select>
+                                                </form>
+                                                <h4 id="cross_filter3_heading" style="text-transform: capitalize">Country</h4>
+                                                <form>
+                                                    <select name="cross_filter3_selector" id="cross_filter3_selector"
+                                                            onchange="Filter_Cross()" style="width: 80%">
+                                                        <!-- <option value="All" selected>All</option> -->
+                                                    </select>
+                                                </form>
+                                                <h4 id="cross_filter4_heading" style="text-transform: capitalize">City</h4>
+                                                <form>
+                                                    <select name="cross_filter4_selector" id="cross_filter4_selector"
+                                                            onchange="Filter_Cross()" style="width: 80%">
+                                                       <!--  <option value="All" selected>All</option> -->
+                                                    </select>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <div class="card-box">
+
+                                            <h3 class="header-title m-t-0 m-b-5">Measures</h3>
+
+                                            <form>
+                                                <select name="cross_measures_selector" id="cross_measures_selector"
+                                                        onchange="cross_measure_selector()" style="width: 100%">
+                                                    <option value="intensity" selected>Intensity</option>
+                                                    <option value="likelihood">Likelihood</option>
+                                                    <option value="relevance">Relevance</option>
+                                                </select>
+
+                                            </form>
+
+                                        </div>
+
+                                        <div class="card-box">
+
+                                            <h3 class="header-title m-t-0 m-b-5">Confidence</h3>
+
+                                            <input type="radio" name="conf" id="cross_90conf"
+                                                   onchange="cross_calculate_confidence()"><span
+                                                style="padding-left: 5px">90%</span><br>
+
+                                            <input type="radio" name="conf" id="cross_95conf" onchange="cross_calculate_confidence()"
+                                                 checked  ><span
+                                                style="padding-left: 5px">95%</span><br>
+
+                                            <input type="radio" name="conf" id="cross_99conf"
+                                                   onchange="cross_calculate_confidence()"><span
+                                                style="padding-left: 5px;">99%</span><br>
+                                        </div>
+                                        <div class="card-box">
+                                            <h3 class="header-title m-t-0 m-b-5 tooltip1">SWOT</h3>
+                                            <div id="cross_riskoppdiv">
+                                                <form>
+                                                    <select name="cross_riskopp" 
+                                                    id="cross_riskopp" style="width: 100%"
+                                                            onchange="cross_swot()">
+                                                        <option value="All" selected>All</option>
+                                                        
+                                                        <option value="Strength">Strength</option>
+                                                        <option value="Weakness">Weakness</option>
+                                                        <option value="Opportunity">Opportunity</option>
+                                                        <option value="Threat">Threat</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div id="cross_topTenShow"></div>
+                            <br>
+                            <div class="col-sm-7 five-three">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="#" id="cross_link0" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-custom" data-plugin="counterup" id="cross_text0"></h4>
+                                                    <h5 id="cross_num0"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="#" id="cross_link1" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-pink" data-plugin="counterup" id="cross_text1"></h4>
+                                                    <h5 id="cross_num1"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <a href="#" id="cross_link2" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-warning" data-plugin="counterup" id="cross_text2"></h4>
+                                                    <h5 id="cross_num2"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-5 five-two">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="#" id="cross_link3" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="cross_text3"></h4>
+                                                    <h5 id="cross_num3"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="#" id="cross_link4" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="cross_text4"></h4>
+                                                    <h5 id="cross_num4"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-7 five-three">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="#" id="cross_link5" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-custom" data-plugin="counterup" id="cross_text5"></h4>
+                                                    <h5 id="cross_num5"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="#" id="cross_link6" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-pink" data-plugin="counterup" id="cross_text6"></h4>
+                                                    <h5 id="cross_num6"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <a href="#" id="cross_link7" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-warning" data-plugin="counterup" id="cross_text7"></h4>
+                                                    <h5 id="cross_num7"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-5 five-two">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="#" id="cross_link8" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="cross_text8"></h4>
+                                                    <h5 id="cross_num8"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="#" id="cross_link9" target="_blank">
+                                            <div class="card-box widget-user">
+                                                <div class="text-center">
+                                                    <h4 class="text-info" data-plugin="counterup" id="cross_text9"></h4>
+                                                    <h5 id="cross_num9"></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+
+                                <div class="card-box table-responsive">
+
+                                    <div class="col-sm-12">
+
+                                        <table id="cross_table" class="table table-striped table-bordered dataTable no-footer"
+                                               role="grid" aria-describedby="datatable_info">
+
+                                            <thead>
+
+                                            <tr>
+
+                                                <th> Title</th>
+
+                                                <th> Topic</th>
+
+                                                <th>Year</th>
+
+                                                <th>Intensity</th>
+
+                                                <th>Sector</th>
+
+                                                <th>Region</th>
+
+                                                <th>PESTLE</th>
+
+                                            </tr>
+
+                                            </thead>
+
+                                        </table>
+
+                                    </div>
+
+                                </div><!-- end col -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="container" id="heat_feedback_container" style="width: 46%;height: 400px;margin-top: 20px;display: none">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="card-box">
+
+                                <dl class="m-b-0">
+
+                                    <h1>Feedback</h1>
+
+                                </dl>
+                                <div class="webtext-contactform" id="heat_contactFormContainer">
+
+
+                                    <form class="itemeditform" id="heat_validateForm" method="post" onsubmit="this.action='/webtexts'+'/contactus';">
+                                        <input id="heat_webtextid" name="webtextid" type="hidden" value="809" />
+                                        <input id="heat_memberid" name="memberid" type="hidden" value="3269436" />
+                                        <label></label>
+                                        <textarea id="heat_message" rows="6" name="message" style="width: 100%" required></textarea>
+                                        <span id="heat_contactFormButton">
+      <div class="g-recaptcha" data-sitekey="6Lf7JP8SAAAAAHNYlrMbnc5TNrz_Du0HZ8wEHgnk"></div>
+      <br>
+      <div><input class="btn btn-primary" type="submit" value="Send" /></div>
+      </span>
+
+                                    </form>
+                                </div>
+</b>
+
+
+
+            </div>
+        </div><!-- end col -->
+
+        </div>
+        
+        </div></div>
+        </div> <!-- content -->
+    	
+					<div class="container-fluid" id="heat_guide_container" style="display: none" >
+
+                    <div class="row" style="margin-left: 185px; margin-right: 50px" >
+
+                        <div class="col-sm-10" >
+
+                            <div class="card-box" >
+
+                                <dl class="m-b-0">
+                                </b>
+
+                                <dt>
+
+                                       <b>1. Purpose</b>
+
+                                    </dt><br></b>
+                                <dd style=" padding-left: 20px">
+                                    A heat map (or heatmap) is a graphical representation of data where the individual values contained in a matrix are represented as colors. It's a quick way to see where the highest impacts might be between two variable.
+                                </dd><br>
+
+                                <dt>
+
+                                       2. Heatmap Dashboard
+
+                                    </dt><br>
+                                    <dt style="padding-left: 20px">
+
+                                       2.1 Heat map
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide1h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+                                    <dt style="padding-left: 20px">
+
+                                       2.2 Heatmap Color Definitions
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide2h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+                                    <dt style="padding-left: 20px">
+
+                                       2.3 Click on a Grid Box
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide3h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+                                    <dt style="padding-left: 20px">
+
+                                       2.4 Year Range
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide4h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+                                    <dt style="padding-left: 20px">
+
+                                       2.5 Coordinates
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide5h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+                                    <dt style="padding-left: 20px">
+
+                                       2.6 Filters
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide6h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+                                    <dt style="padding-left: 20px">
+
+                                       2.7 Measures
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide7h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+                                    <dt style="padding-left: 20px">
+
+                                       2.8 Statistical Measures
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide8h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+                                     <dt style="padding-left: 20px">
+
+                                        2.9 SWOT (Beta)
+
+                                    </dt>
+                                    
+                                    <p style="padding-left: 20px">
+                                        SWOT analysis is a strategic planning technique used to help a person or organization identify the Strengths, Weaknesses, Opportunities, and Threats related to business competition or project planning.<br>
+                                    </p>
+                                    <dd style="padding-left: 20px">
+                                        SWOT stands for Strengths, Weaknesses, Opportunities, and Threats.
+                                        <ul>
+                                            <li><b>Strengths:</b> Attributes and resources that support a successful outcome.</li>
+                                            <li><b>Weaknesses:</b> Attributes and resources that work against a successful outcome.</li>
+                                            <li><b>Opportunities:</b> External factors that the entity can capitalize on or use to its advantage.</li>
+                                            <li><b>Threats:</b> External factors that could jeopardize the entity's success.</li>
+                                        </ul>
+                                        <b>Note:</b> Traditionally Strengths and Weaknesses referred to internal attributes while Opportunities and Risks referred to external attributes. We have ignored this division as we believe all SWOT criteria are useful in both external and internal strategic analysis.<br><br>
+                                        Therefore, our system has been developed to identify and separate possible external SWOT's in the form of FORECASTS that are relevant to your interest topic. Clicking on each SWOT category will highlight those our robot thinks fit closest to an external SWOT categorization.<br><br>
+                                        You can separately create an equivalent internal SWOT on your organization by adding a project here. Then you can compare the two analyses for where your major opportunities and threats lie and then develop your strategic response, again by developing the project you have added here.<br><br>
+                                        Importantly, one organization's strength is possibly another's weakness and an opportunity for one is maybe a threat to another. So, when reading the external SWOT's consider both the positive and negative futures that might arise from the presented forecasts depending on whether you are the attacker, defender or just an observer.<br><br>
+                                        Since this is a new and unique, beta service may occasionally wrongly assign an opportunity to a threat or a strength to a weakness or vice versa. However, that should not stop you from considering both sides of the change. It's your thoughts and revelations that count from this analysis; not exact classification, every time.
+                                    </dd>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide9h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+
+                                    <dt style="padding-left: 20px">
+
+                                       2.10 Active Sum and Passive Sum
+
+                                    </dt>
+
+                                    <dd style="padding-left :20px;">
+                                        Active sum = Simple sums of the values in the rows<br> 
+                                        Passive sum = Simple sums of the values in the columns<br><br>
+                                        <b>Active Sum</b> 
+
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Activesum.jpg" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    <b>Passive Sum</b>
+                                    <p style="text-align:center;">
+                                        <img src="assets/images/help/Passivesum.jpg" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+                                    <dt style="padding-left: 20px">
+
+                                       2.11 Top Ten Topics
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide10h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+                                    <dt style="padding-left: 20px">
+
+                                       2.12 Data table
+
+                                    </dt>
+
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/Slide11h.JPG" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+                                    <dt>
+
+                                       3. Cross Impact Dashboard
+
+                                    </dt><br>
+                                    <p style="padding-left: 20px">
+                                        For each selected variable, Cross Impact Score (CI) defined as:<br> 
+
+<p style="text-align:center">Average intesity of forecasts under X<sub>1</sub> * Average intesity of froecasts under X<sub>2</sub> </p> <br>
+
+<p style="padding-left: 20px">Where X<sub>1</sub> is an element of the variable and X<sub>2</sub>  is another element of the variable. </p><br>
+
+<p style="padding-left: 20px">Cross Impact Score can be calculated for following variables: 
+    <ul>
+        <li>Country</li>
+        <li>Sector</li>
+        <li>Region</li>
+        <li>PESTLE</li>
+        <li>City</li>
+        <li>Topics</li> 
+    </ul>
+    
+</p>
+<br>
+                                    </p>
+                                     <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/cross_imp1.png" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+                                    <dd style="margin:20px 20px;padding:10px;">
+                                        <p style="text-align:center;">
+                                        <img src="assets/images/help/cross_imp2.png" alt="Chart Type" title="Chart Type" style="width:90%;height:90%;">
+                                    </p>
+                                    </dd><br>
+
+                                <dt>
+
+                                       4. Definitions
+
+                                    </dt><br>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.1 Relevance
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The importance of the forecast
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.2	Likelihood
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The probability of occurrence
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.3	Impact (&#x20A4; &nbsp; $ &nbsp; &#x20AC;)
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The possible financial impact (millions, billions or trillions)
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.4	Topics
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The subjects covered within the text (there are 100s)
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.5	Sector
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The industry or market sector
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.6	Pestle
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	Political, Economic, Social, Technological, Legal or Environmental (plus Healthcare, Industries, Lifestyles and Organization)
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.7	Region
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The region of the world that may be impacted
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.8	City
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	A major conurbation potentially impacted by change
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.9	Country
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	A nation state potentially impacted by change
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	4.10 SWOT
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	A strategic classification separating (strengths), (w)eaknesses, (o)pportunities and (t)hreats
+                                    </p>
+
+                                    <dt>
+
+                                       5. Statistical Measures
+
+                                    </dt><br>
+
+                                    <dt style=" padding-left: 20px">
+                                    	5.1	Mean (&mu;)
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The mean is the average of the numbers: a calculated "central" value of a set of numbers. The mean is calculated by adding up all the numbers, then dividing by how many numbers there are.
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	5.2	Standard Deviation (&sigma;)
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The standard deviation is a statistic that tells you how tightly all the various examples are clustered around the mean in a set of data. When the examples are tightly bunched together, and the bell-shaped curve is steep, the standard deviation is small. When the examples are spread apart, and the bell curve is relatively flat, that tells you have a relatively large standard deviation.
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	5.3	Confidence Level (CL)
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	The confidence level is the plus-or-minus figure usually reported in newspaper or television opinion poll results. For example, if you use a confidence level of 4 and 47% percent of your sample picks an answer you can be "sure" that if you had asked the question of the entire relevant population between 43% (47-4) and 51% (47+4) would have picked that answer. The Confidence Level is set to 95% and the mean and standard deviation calculated to create the upper and lower confidence limits shown here.<br><br>
+                                    	The Confidence Level is set to 95% and the mean and standard deviation calculated to create the upper and lower confidence limits shown here.
+                                    </p>
+
+                                    <dt style=" padding-left: 20px">
+                                    	5.4	Confidence Interval (CI)
+                                    </dt>
+                                    <p style="margin-bottom:20px; padding-left: 20px">
+                                    	A confidence interval is a range of values within which the standard deviation will be found with a known probability if the estimation procedure is repeated many times.
+                                    </p>
+
+                                    
+                                    <dt style="padding-left: 20px">
+                                        <b>Feedback</b>
+                                    </dt><br>
+
+                                    <dd style="padding-left: 20px">
+
+                                        Do let me know if you need more information.
+
+                                    </dd>
+
+                                    <dd style="padding-left: 20px">
+
+                                        Cheers
+
+                                    </dd>
+
+                                    <dd style="padding-left: 20px">
+
+                                        Athena
+
+                                    </dd><br><br>
+
+
+                                    <br><br>
+
+
+                                </dl>
+
+                            </div>
+
+                        </div><!-- end col -->
+
+                    </div>
+
+                </div>
+        </div>
+</b></b>
+</dt>
+</dl>
+</div>
+</div></div></div>
+
+ 
+
+       
+        <script >
+                
+
+
+
+        function activate_year_heat(){
+            previousSelectedXcoordinate = document.getElementById('heat_x_coordinate_list').value;
+            previousSelectedYcoordinate = document.getElementById('heat_y_coordinate_list').value;
+
+            if($("#toggle_heat").is(':checked')){
+                document.getElementById('year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#heat_range').show();
+                setTimeout(myfunct, 1000)
+                function myfunct(){
+               
+                year_value_heat_1 = 2018
+                year_value_heat_2 = 2030
+                document.getElementById('year_value').innerHTML = '(' + year_value_heat_1 +' - '+year_value_heat_2+ ')';
+                filteringData();
+                chartload();
+                $('#heat_range').slider({
+                range: true,
+                min: 2018,
+                max: 2060,
+                values: [2018,2030],
+                step: 1,
+                slide: function (event, uih) {
+                    document.getElementById('year_value').innerHTML = '(' + uih.values[0] +' - '+year_value_heat_2+ ')';
+                }
+            });
+
+            $("#heat_range").on("slidestop", function (event, uih) {
+                year_value_heat_1 = uih.values[0];
+                year_value_heat_2 = uih.values[1];
+                document.getElementById('year_value').innerHTML = '(' + year_value_heat_1 +' - '+year_value_heat_2+ ')';
+                document.getElementById('heat_chart').innerHTML = "";
+                document.getElementById('heat_chart').innerHTML = "<div id=\"heat_Loading\">\n" +
+                    "                                        <img src=\"assets/images/loader.gif\">\n" +
+                    "                                    </div>";
+                filteringData();
+                chartload();
+                console.log(year_value_heat_1);
+            });}
+
+   
+            
+        }
+                
+
+            else {
+               document.getElementById('year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+               $('#heat_range').hide();
+               setTimeout(myfunc, 1000)
+               function myfunc(){
+                console.log('Else Area')
+                year_value_heat_1 = ''
+                year_value_heat_2 = ''
+                
+                document.getElementById('year_value').innerHTML = '';
+                filteringData();
+                chartload();
+                
+            }}}
+
+                
+            previousSelectedXcoordinate = document.getElementById('heat_x_coordinate_list').value;
+            previousSelectedYcoordinate = document.getElementById('heat_y_coordinate_list').value;
+            //first time year value when page loads
+            year_value_heat_1 = ''
+            year_value_heat_2 = ''
+            //filteringData();
+            //chartload();
+
+        </script>
+
+
+
+
+        
+        <script  >
+            function heatRiskopp() {
+                var selectedName = document.getElementById('heat_riskopp').value;
+                console.log(selectedName);
+                var filteredRiskoppData = [];
+                document.getElementById('heat_chart').innerHTML = "";
+                document.getElementById('heat_chart').innerHTML = "<div id=\"heat_Loading\">\n" +
+                    "                                        <img src=\"assets/images/loader.gif\">\n" +
+                    "                                    </div>";
+                if (selectedName == 'All') {
+                    onSelectedFilter('filter1');
+                } else {
+                    onSelectedFilter('filter1');
+                    console.log(chartData);
+                    chartData.forEach((item, i) => {
+                        if (item.swot == selectedName) {
+                            filteredRiskoppData.push(item);
+                        }
+                    })
+
+                    chartData = filteredRiskoppData;
+
+                }
+            }
+        </script>
+		
+        
+        <!-- Country Slider-->
+<script>
+
+    function activate_year_country(){
+            
+
+            if($("#toggle_country").is(':checked')){
+                document.getElementById('country_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#country_range').show();
+                setTimeout(myfunct1, 1000)
+                function myfunct1(){
+               
+                year_value_co_1 = 2018
+                year_value_co_2 = 2030
+                document.getElementById('country_year_value').innerHTML = '(' + year_value_co_1 +' - '+year_value_co_2+ ')';
+                loadmap1();
+            $('#country_range').slider({
+                range: true,
+                min: 2018,
+                max: 2060,
+                values: [2018,2030],
+                step: 1,
+                slide: function (event, uico) {
+                    document.getElementById('country_year_value').innerHTML = '(' + uico.values[0] +' - '+year_value_co_2+ ')';
+
+                }
+
+    });
+    $("#country_range").on("slidestop", function (event, uico) {
+        year_value_co_1 = uico.values[0];
+        year_value_co_2 = uico.values[1];
+        document.getElementById('country_year_value').innerHTML = '(' + year_value_co_1 +' - '+year_value_co_2+ ')';
+        document.getElementById('country_chart').innerHTML = "";
+        document.getElementById('country_chart').innerHTML = "<div id=\"heat_Loading2\">\n" +
+            "                                        <img src=\"assets/images/loader.gif\">\n" +
+            "                                    </div>";
+                console.log(year_value_co_1);
+        loadmap1();
+    });}
+
+   
+            
+        }
+                
+
+            else {
+                document.getElementById('country_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#country_range').hide();
+                setTimeout(myfunct2, 1000)
+                function myfunct2(){
+                console.log('Else Area')
+                year_value_co_1 = ''
+                year_value_co_2 = ''
+              
+                document.getElementById('country_year_value').innerHTML = '';
+                 loadmap1();
+                }
+            }}
+
+
+
+        
+    //first time year value when page loads
+    year_value_co_1 = ''
+    year_value_co_2 = ''
+    
+
+   
+    
+</script>
+
+<script >
+
+            function activate_year_radar(){
+            
+
+            if($("#toggle_radar").is(':checked')){
+                document.getElementById('radar_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#range_03').show();
+                setTimeout(myfunct10, 1000)
+                function myfunct10(){
+               
+                year_value_rd_1 = 2018
+                year_value_rd_2 = 2030
+                document.getElementById('radar_year_value').innerHTML = '(' + year_value_rd_1 +' - '+year_value_rd_2+ ')';
+                script();
+            $('#range_03').slider({
+                
+                range: true,
+                min: 2018,
+                max: 2060,
+                values: [2018,2030],
+                step: 1,
+                slide: function (event, uird) {
+                    document.getElementById('radar_year_value').innerHTML = '(' + uird.values[0] +' - '+year_value_rd_2+ ')';
+
+                }
+
+    });
+    $("#range_03").on("slidestop", function (event, uird) {
+        year_value_rd_1 = uird.values[0];
+        year_value_rd_2 = uird.values[1];
+        document.getElementById('radar_year_value').innerHTML = '(' + year_value_rd_1 +' - '+year_value_rd_2+ ')';
+        document.getElementById('chart').innerHTML = "";
+        /*document.getElementById('chart').innerHTML = "<div id=\"heat_Loading2\">\n" +
+            "                                        <img src=\"assets/images/loader.gif\">\n" +
+            "                                    </div>";*/
+        script();   
+        
+    });}
+
+   
+            
+        }
+                
+
+            else {
+                document.getElementById('radar_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#range_03').hide();
+                setTimeout(myfunct20, 1000)
+                function myfunct20(){
+                console.log('Else Area')
+                year_value_rd_1 = ''
+                year_value_rd_2 = ''
+              
+                document.getElementById('radar_year_value').innerHTML = '';
+                 script();
+                }
+            }}
+
+
+
+        
+    //first time year value when page loads
+    year_value_rd_1 = ''
+    year_value_rd_2 = ''
+
+            
+</script>
+
+<!-- City Slider-->
+<script>
+
+
+            function activate_year_city(){
+            
+
+            if($("#toggle_city").is(':checked')){
+                $('#city_range').show();
+                document.getElementById('city_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 setTimeout(myfunct3, 1000)
+                 function myfunct3(){
+                year_value_ci_1 = 2018
+                year_value_ci_2 = 2030
+                document.getElementById('city_year_value').innerHTML = '(' + year_value_ci_1 +' - '+year_value_ci_2+ ')';
+                loadmap();
+            $('#city_range').slider({
+        range: true,
+        min: 2018,
+        max: 2060,
+        values: [2018,2030],
+        step: 1,
+        slide: function (event, uici) {
+            document.getElementById('city_year_value').innerHTML = '(' + uici.values[0] +' - '+year_value_ci_2+ ')';
+
+        }
+
+    });
+    $("#city_range").on("slidestop", function (event, uici) {
+        year_value_ci_1 = uici.values[0];
+        year_value_ci_2 = uici.values[1];
+        document.getElementById('city_year_value').innerHTML = '(' + year_value_ci_1 +' - '+year_value_ci_2+ ')';
+        document.getElementById('city_chart').innerHTML = "";
+        document.getElementById('city_chart').innerHTML = "<div id=\"heat_Loading1\">\n" +
+            "                                        <img src=\"assets/images/loader.gif\">\n" +
+            "                                    </div>";
+                console.log(year_value_ci_1);
+        loadmap();
+    });}
+
+   
+            
+        }
+                
+
+            else {
+                document.getElementById('city_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#city_range').hide();
+                setTimeout(myfunct4, 1000)
+                function myfunct4(){
+                console.log('Else Area')
+                year_value_ci_1 = ''
+                year_value_ci_2 = ''
+                
+                document.getElementById('city_year_value').innerHTML = '';
+                 loadmap();
+                
+            }}}
+
+
+
+        
+    //first time year value when page loads
+    year_value_ci_1 = ''
+    year_value_ci_2 = ''
+
+
+
+</script> 
+
+
+        <script>
+            var resizefunc = [];
+            
+            $('#heat_feedback_lnk button').click(function(){
+            	//$('#motion_guide_container').hide();
+            	//$('#bubble_container').hide();
+            	$('#heat_guide_container').hide();
+                $('#cross_container').hide();
+            	$('#cloud_guide_container').hide();
+                $('#heat_container').hide();
+                $('#cloud_feedback_container').hide();
+             	$('#country_container').hide();
+             	$('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#geo').removeClass('active');
+                $('#city_container').hide();
+                $('#heat_feedback_container').show();
+                $(this).addClass('custom-btn-active');
+                $('#heat_view_link button').removeClass('custom-btn-active');
+                $('#heat_guide_lnk button').removeClass('custom-btn-active');
+                 $('#cross_impact_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+                                //$('#definition_container').hide();
+            });
+
+            $('#heat_view_link button').click(function(){
+                $('#heat_container').show();
+                $('#heat_guide_container').hide();
+                $('#cloud_guide_container').hide();
+                 $('#cross_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#heat_feedback_container').hide();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#geo').removeClass('active');
+                $(this).addClass('custom-btn-active');
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $('#heat_feedback_lnk button').removeClass('custom-btn-active');
+                $('#heat_guide_lnk button').removeClass('custom-btn-active');
+                 $('#cross_impact_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+                                //$('#definition_container').hide();
+            });
+
+             $('#cross_impact_lnk button').click(function(){
+                $('#heat_container').hide();
+                $('#cross_container').show();
+                $('#heat_guide_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#heat_feedback_container').hide();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#geo').removeClass('active');
+                $(this).addClass('custom-btn-active');
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $('#heat_feedback_lnk button').removeClass('custom-btn-active');
+                $('#heat_guide_lnk button').removeClass('custom-btn-active');
+                $('#heat_view_link button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+                                //$('#definition_container').hide();
+            });
+
+            $('#heat_guide_lnk button').click(function(){
+            	//$('#motion_guide_container').hide();
+            	//$('#bubble_container').hide();
+                $('#heat_guide_container').show();
+                 $('#cross_container').hide();
+                $('#heat_feedback_container').hide();
+                $('#heat_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#geo').removeClass('active');
+                $('#country_container').hide();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#city_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#heat_feedback_lnk button').removeClass('custom-btn-active');
+                 $('#cross_impact_lnk button').removeClass('custom-btn-active');
+                $('#heat_view_link button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+                                //$('#definition_container').hide();
+            });
+
+            $('#motion_guide_lnk button').click(function(){
+                $('#motion_chart_container').hide();
+                $('#motion_definition_container').hide();
+                 $('#cross_container').hide();
+                 $('#heat_feedback_container').hide();
+                $('#heat_guide_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#feedback_container').hide();
+                $('#geo').removeClass('active');
+                $('#motion_guide_container').show();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#motion_chart_lnk button').removeClass('custom-btn-active');
+                $('#motion_definition_lnk button').removeClass('custom-btn-active');
+                $('#motion_feedback_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+            });
+            
+            $('#motion_feedback_lnk button').click(function() {
+                //$('#guide_container').hide();
+                $('#motion_guide_container').hide();
+                $('#motion_chart_container').hide();
+                $('#heat_feedback_container').hide();
+                 $('#cross_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#heat_guide_container').hide();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#motion_definition_container').hide();
+                $('#feedback_container').show();
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#motion_guide_lnk button').removeClass('custom-btn-active');
+                $('#motion_chart_lnk button').removeClass('custom-btn-active');
+                //$('#guide_lnk button').removeClass('custom-btn-active');
+                $('#motion_definition_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+            });
+
+             $('#city_view_link button').click(function(){
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                 $('#cross_container').hide();
+                 $('#heat_feedback_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#country_container').hide();
+                $('#city_container').show();
+                $('#heat_guide_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+                $('#radarTopbar').hide();
+            //$('#heat_guide_container').hide();
+	            $('#radarContentPage').hide();
+	            //$('#heatTopbar').hide();
+	            $('#heatContentPage').hide();
+	            $('#heat').removeClass('active');
+	            $('#motionTopbar').hide();
+	            $('#motionContentPage').hide();
+	            $('#radar').removeClass('active');
+	            $('#motion').removeClass('active');
+               
+            });
+
+    $('#country_view_link button').click(function(){
+                $('#geo_guide_container').hide();
+                 $('#cross_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#heat_feedback_container').hide();
+                $('#country_container').show();
+                $('#city_container').hide();
+                $('#heat_guide_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+                $('#radarTopbar').hide();
+	            //$('#heat_guide_container').hide();
+	            $('#radarContentPage').hide();
+	            //$('#heatTopbar').hide();
+	            $('#heatContentPage').hide();
+	            $('#heat').removeClass('active');
+	            $('#motionTopbar').hide();
+	            $('#motionContentPage').hide();
+	            $('#radar').removeClass('active');
+	            $('#motion').removeClass('active');
+               
+            });
+
+    
+        </script>
+        <script type="text/javascript">
+            $(window).resize(function(){
+                //To redraw the chart in case window is resized
+                if($('#bubble_container').is(':visible'))
+                    script(1,1,1,1,1,1);
+            });
+        </script>
+        <script>
+            var resizefunc = [];
+            $('#bubble_lnk button').click(function(){
+                $('#guide_container').hide();
+                $('#definition_container').hide();
+                //$('#heat_guide_container').hide();
+                $('#radar_feedback_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#heat_feedback_container').hide();
+                 $('#cross_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#bubble_container').show();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#guide_lnk button').removeClass('custom-btn-active');
+                $('#definition_lnk button').removeClass('custom-btn-active');
+                $('#feedback_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+            });
+            $('#guide_lnk button').click(function(){
+                $('#bubble_container').hide();
+                $('#definition_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#heat_feedback_container').hide();
+                 $('#cross_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                //$('#heat_guide_container').hide();
+                $('#radar_feedback_container').hide();
+                $('#guide_container').show();
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#bubble_lnk button').removeClass('custom-btn-active');
+                $('#definition_lnk button').removeClass('custom-btn-active');
+                $('#feedback_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+            });
+            $('#definition_lnk button').click(function(){
+                $('#guide_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#radar_feedback_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#heat_feedback_container').hide();
+                 $('#cross_container').hide();
+                $('#geo_guide_container').hide();
+                $('#geo_feedback_container').hide();
+                //$('#heat_guide_container').hide();
+                $('#bubble_container').hide();
+                $('#bubble_container').hide();
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $('#definition_container').show();
+                console.log("Click");
+                $(this).addClass('custom-btn-active');
+                $('#bubble_lnk button').removeClass('custom-btn-active');
+                $('#feedback_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+            });
+            $('#feedback_lnk button').click(function(){
+                $('#guide_container').hide();
+                $('#bubble_container').hide();
+                 $('#cross_container').hide();
+                $('#cloud_feedback_container').hide();
+                $('#cloud_guide_container').hide();
+                $('#geo_guide_container').hide();
+                $('#heat_feedback_container').hide();
+                $('#geo_feedback_container').hide();
+                $('#definition_container').hide();
+                //$('#heat_guide_container').hide();
+                $('#radar_feedback_container').show();
+                $('#country_container').hide();
+                $('#city_container').hide();
+                $(this).addClass('custom-btn-active');
+                $('#guide_lnk button').removeClass('custom-btn-active');
+                $('#bubble_lnk button').removeClass('custom-btn-active');
+                //$('#guide_lnk button').removeClass('custom-btn-active');
+                $('#definition_lnk button').removeClass('custom-btn-active');
+                $('#country_view_link button').removeClass('custom-btn-active');
+                $('#city_view_link button').removeClass('custom-btn-active');
+                $('#geo_guide_link button').removeClass('custom-btn-active');
+                $('#geo_feedback_link button').removeClass('custom-btn-active');
+            });
+        </script>
+
+    <script>
+        
+       
+
+        
+        $('#heat').click(function () {
+            document.getElementById('heat').className = 'active';
+            $('#heatTopbar').show();
+            $('#cloud_feedback_container').hide();
+            $('#heatContentPage').show();
+            $('#heat_container').show();
+            $('#geo_guide_container').hide();
+            $('#cloud_guide_container').hide();
+            $('#geo_feedback_container').hide();
+            $('#motionTopbar').hide();
+            $('#motionContentPage').hide();
+            $('#country_container').hide();
+            $('#city_container').hide();
+            $('#radarTopbar').hide();
+            $('#radarContentPage').hide();
+            $('#word').removeClass('active');
+            $('#cloud_container').hide();
+            $('#wordTopbar').hide();
+             $('#geoContentPage').hide();
+            $('#motion').removeClass('active');
+             $('#geo').removeClass('active');
+            $('#radar').removeClass('active');
+            document.getElementById('motion_95conf').checked=true;
+            document.getElementById('95conf').setAttribute('checked','unchecked');
+            motion_confidencecalc();
+        }
+
+
+        )
+        function showRadar(){
+            let tabName;
+            if(window.location.href.indexOf("radar") > -1){
+                tabName='radar';
+            }
+            else if(window.location.href.indexOf("graphit") > -1){
+                tabName='motion';
+            }else if(window.location.href.indexOf("heat") > -1){
+                tabName='heat';
+            }else{
+                tabName='radar';
+            }
+            document.getElementById(tabName+'Topbar').style.display='block';
+            document.getElementById(tabName+'ContentPage').style.display='block';
+            if(tabName == 'radar'){
+                document.getElementById('radar').className = 'active';
+                $('#motion').removeClass('active');
+                $('#heat').removeClass('active');
+            }else if(tabName == 'motion'){
+                document.getElementById('motion').className = 'active';
+                $('#radar').removeClass('active');
+                $('#heat').removeClass('active');
+            }else if(tabName == 'heat'){
+                document.getElementById('heat').className = 'active';
+                $('#motion').removeClass('active');
+                $('#radar').removeClass('active');
+            }
+        }
+    </script>
+
+     
+
+
+
+        <script>
+        	function activate_year_cloud(){
+
+        	if($("#toggle_cloud").is(':checked')){
+                document.getElementById('cloud_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#cloud_range').show();
+                setTimeout(myfunct6, 1000)
+                function myfunct6(){
+        		year_value_cloud_1 = 2018
+            	year_value_cloud_2 = 2066
+        		document.getElementById('cloud_year_value').innerHTML = '(' + year_value_cloud_1 +' - '+year_value_cloud_2+ ')';
+	            Filter_cloud(document.querySelector('input[name="cloud"]:checked').value)
+	            cloud_frequency(document.querySelector('input[name="cloud"]:checked').value)
+
+        		console.log('If Area')
+        		
+                $('#cloud_range').slider({
+                range: true,
+                min: 2018,
+                max: 2066,
+                values: [2018,2066],
+                step: 1,
+                slide: function (event, uic) {
+                    document.getElementById('cloud_year_value').innerHTML = '(' + uic.values[0] +' - '+year_value_cloud_2+ ')';
+                          }
+                
+                
+            });
+
+                
+
+            $("#cloud_range").on("slidestop", function (event, uic) {
+                year_value_cloud_1 = uic.values[0];
+                year_value_cloud_2 = uic.values[1];
+                document.getElementById('cloud_year_value').innerHTML = '(' + year_value_cloud_1 +' - '+year_value_cloud_2+ ')';
+                document.getElementById('cloud_div').innerHTML = "";
+                Filter_cloud(document.querySelector('input[name="cloud"]:checked').value)
+                cloud_frequency(document.querySelector('input[name="cloud"]:checked').value)
+                
+            });}
+            
+        }
+            	
+
+            else {
+                document.getElementById('cloud_year_value').innerHTML = '<p style="color:red;">(Please wait while I prepare your graphic, Athena!)</p>'
+                 $('#cloud_range').hide();
+                setTimeout(myfunct5, 1000)
+                function myfunct5(){
+            	console.log('Else Area')
+            	year_value_cloud_1 = ''
+            	year_value_cloud_2 = ''
+            	
+            	document.getElementById('cloud_year_value').innerHTML = '';
+
+            	Filter_cloud(document.querySelector('input[name="cloud"]:checked').value)
+           	    cloud_frequency(document.querySelector('input[name="cloud"]:checked').value)
+            	
+            }}}
+
+           	 	
+            	/*$('#cloud_range').hide();
+            	document.getElementById('cloud_year_value').innerHTML = '';*/
+                
+            	/*Filter_cloud(document.querySelector('input[name="cloud"]:checked').value)
+           	    cloud_frequency(document.querySelector('input[name="cloud"]:checked').value)
+                year_value_cloud_1 = '';
+                year_value_cloud_2 = '';*/
+            
+
+
+            
+        </script>
+
+        
+        <script>
+            var resizefunc = [];
+            $(document).ready(function(){
+
+                
+                $('#cloud button').click(function(){
+                    
+                    $('#cloud_guide_container').hide();
+                    $('#cloud_feedback_container').hide();
+                     $('#cross_container').hide();
+                     $('#heat_feedback_container').hide();
+                    $('#cloud_guide_container').hide();
+                    $('#cloud_feedback_container').hide();
+                    $('#geo_guide_container').hide();
+                    $('#cloud_container').show();
+                    $(this).addClass('custom-btn-active');
+                    $('#cloud_guide button').removeClass('custom-btn-active');
+                    $('#cloud_feedback button').removeClass('custom-btn-active');
+                });
+                               
+                $('#cloud_guide button').click(function(){
+                    $('#cloud_guide_container').show();
+                    $('#cloud_feedback_container').hide();
+                     $('#cross_container').hide();
+                    $('#cloud_feedback_container').hide();
+                    $('#heat_feedback_container').hide();
+                    $('#geo_guide_container').hide();
+                    $('#cloud_container').hide();
+                    $(this).addClass('custom-btn-active');
+                    $('#cloud button').removeClass('custom-btn-active');
+                    $('#cloud_feedback button').removeClass('custom-btn-active');
+                });
+
+                $('#cloud_feedback button').click(function(){
+                    $('#cloud_guide_container').hide();
+                    $('#cloud_feedback_container').show();
+                    $('#cloud_guide_container').hide();
+                    $('#heat_feedback_container').hide();
+                    $('#cloud_container').hide();
+                    $(this).addClass('custom-btn-active');
+                    $('#geo_guide_container').hide();
+                    $('#cloud button').removeClass('custom-btn-active');
+                    $('#cloud_guide button').removeClass('custom-btn-active');
+                    
+                });
+            });
+        </script>
+
+    	
+    <script>
+         $.ajax({
+            url: shapingTomorrowDataUrl,
+            dataType: 'json',
+            success: [postProcessCross,postProcessing4],
+            async: true,
+            cache: false
+        });
+
+       
+    </script>
+    <script src="assets/js/chart.js"></script>
+    
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text1"></br>
+    <button onclick="getText()">get Text</button></br>
+</body>
+<script>
+     function getText(){
+        var inputField = document.getElementById("text1");
+        var inputValue = inputField.value;
+        console.log("input value =",inputValue);
+        var digits = "";
+        var length = inputValue.length;
+        for(var count = 1; count<length;count++){
+            var ch = inputValue.charAt(count);
+            if(ch>="0"&&ch<="9"){
+               digits = digits+ch;
+            }
+        }
+        console.log("Digits =",digits);
+    }
+</script>
+</html>

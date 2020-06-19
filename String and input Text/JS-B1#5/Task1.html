@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text1"></br>
+    <button onclick="validate()">validate</button></br>
+    <div id="textvalid"></div>
+</body>
+<script>
+    function validate(){
+        var inputField = document.getElementById("text1");
+        var inputValue = inputField.value;
+        var ele = document.getElementById("textvalid");
+        var length = inputValue.length;
+        var lowerCaseLetters = /[a-z]/g;
+        if(lowerCaseLetters=inputValue){
+            ele.innerHTML="";
+        }else{
+            ele.innerHTML="inter input is invalid";
+        }
+      
+       
+    }
+</script>
+</html>

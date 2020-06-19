@@ -1,0 +1,18 @@
+.style1{
+    padding: 5px;
+    border: 2px solid black;
+    background-color:#3333f2;
+    color: white;
+}
+.style2{
+    padding: 10px;
+    border: 2px solid black;
+    background-color:#f23333;
+    color: white;
+}
+.style3{
+    padding: 20px;
+    border: 2px solid black;
+    background-color:#33f233;
+    color: white;
+}

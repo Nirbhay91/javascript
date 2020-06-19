@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <title>Form</title>
+   </head>
+<body>
+    <div class="container">
+        <div id="mytable01">
+
+        </div>
+
+    </div>
+    <script>
+        let persons =[{"name":"Jack","age":28,"city":"London"},
+                     {"name":"Mary","age":22,"city":"Paris"},
+                     {"name":"Bob","age":37,"city":"New York"},
+                     {"name":"Steve","age":25,"city":"Delhi"},
+                     {"name":"Kathy","age":29,"city":"Tokoy"},
+                     {"name":"Tim","age":30,"city":"London"},
+                     {"name":"Divid","age":41,"city":"Delhi"},
+                     {"name":"Julid","age":43,"city":"London"},
+                     ];
+
+                   showPersons();
+                   function showPersons(){
+                       let header = "<div class='row border bg-dark text-white'><div class='col-4'>Name</div>";
+                       header = header + "<div class='col-2'>Age</div>";
+                       header = header + "<div class='col-3'>City</div>";
+                       header = header +"</div>";
+                       let mapPersons = persons.map(makeElement);
+                    //    console.log(mapPersons);
+                       let stringData = mapPersons.join(" ");
+                       let element = document.getElementById("mytable01");
+                       let selStr = showCityOptions();
+                       let sel1 = "<form><div class='form-group'>"+selStr+"</div></form>";
+                       element.innerHTML = sel1 + header + stringData; 
+                
+                   }   
+                  
+                   function makeElement(per){
+                       let string = "<div class='row border'><div class='col-4'>"+per.name+"</div>";
+                       string = string + "<div class='col-2'>"+per.age+"</div>";
+                       string = string + "<div class='col-3'>"+per.city+"</div>";
+                       string = string + "</div>";
+                       return string;
+                   }
+                  
+                   function showCityOptions(){
+                      let cities = [];
+                      for(let i=0;i<persons.length;i++){
+                          let c1 = persons[i].city;
+                          if(cities.indexOf(c1)<0)
+                            cities.push(c1);
+                          
+                      } 
+        
+                       let options = cities.map(city => ({"display":city,"value":city}));
+                    //   console.log(options);
+                      options.unshift({"display":"Select City","value":" "});
+                      let optsMap = options.map(makeOption);
+                      let strOpts = options.join(" ");
+                    //   console.log(options);
+                      let selectStr = "<select id='citydd' class='form-control'>"+strOpts+"</select>";
+                      return selectStr;
+                   }
+                    
+                    function makeOption(opt){
+                        return "<option value='"+opt.value+"'>"+opt.display+"</option>";
+                    }
+                   
+    </script>
+</body>
+</html>

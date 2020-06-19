@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    what do you know best <br/>
+   
+    <button onclick="showRadio()">Show Radio</button><br/>
+</body>
+<script>
+      var myRadio1 = document.createElement("input");
+        myRadio1.type = "radio";
+        myRadio1.setAttribute("id","myRadio1");
+        myRadio1.setAttribute("name","value");
+        myRadio1.value ="India";
+        document.body.appendChild(myRadio1);
+        var text1 = document.createTextNode("India");
+        document.body.appendChild(text1);
+
+        var br = document.createElement("br");
+        document.body.appendChild(br);
+       
+        var myRadio2 = document.createElement("input");
+        myRadio2.type = "radio";
+        myRadio2.setAttribute("id","myRadio2");
+        myRadio2.setAttribute("name","value");
+        myRadio2.value ="Austrialia";
+        document.body.appendChild(myRadio2);
+        var text2 = document.createTextNode("Austrialia");
+        document.body.appendChild(text2);
+ 
+        var br = document.createElement("br");
+        document.body.appendChild(br);
+
+        var myRadio3 = document.createElement("input");
+        myRadio3.type = "radio";
+        myRadio3.setAttribute("id","myRadio3");
+        myRadio3.setAttribute("name","value");
+        myRadio3.value ="India";
+        document.body.appendChild(myRadio3);
+        var text3 = document.createTextNode("India");
+        document.body.appendChild(text3);
+        
+    function showRadio(){
+        var tech1 = document.getElementById("myRadio1").checked;
+        console.log(tech1);
+        var tech2 = document.getElementById("myRadio2").checked;
+        console.log(tech2)
+        var tech3 = document.getElementById("myRadio3").checked;
+        console.log(tech3);
+    }
+   
+</script>
+</html>

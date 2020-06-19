@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Text1: <input type="text" id="text1"></br>
+    Text2: <input type="text" id="text2"></br>
+     <button onclick="process()">Process</button></br>
+</body>
+<script>
+     function process(){
+     var inputField1 = document.getElementById("text1");
+     var inputValue1 = inputField1.value;
+     var inputField2 = document.getElementById("text2");
+     var inputValue2 = inputField2.value;
+  var equal = (inputValue1 == inputValue2);
+    console.log("Are the string same =",equal);
+    }
+</script>
+</html>

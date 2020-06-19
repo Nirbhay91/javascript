@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    Text 1 :<input type="text" id="txt1" onchange="change()"
+              onkeydown="keydown()" onfocusin="focusin()" onfocusout ="fout()"><br/>
+
+</body>
+<script>
+    var eventNo = 0;
+    function change(){
+        eventNo++;
+        console.log("onchange",eventNo);
+    }
+    function keydown(){
+        eventNo++;
+        console.log("onkeydown",eventNo);
+    }
+    function focusin(){
+        eventNo++;
+        console.log("onfocusin",eventNo);
+    }
+    function fout(){
+        eventNo++;
+        console.log("onfocusout",eventNo);
+    }
+</script>
+</html>

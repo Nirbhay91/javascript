@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i= 1;
+       
+        document.write("<table class ='mytable'>");
+        document.write("<tr class = 'myheader'>");
+        document.write("<td>Number</td>");
+        document.write("<td>square</td>");
+      
+        document.write("</tr>");
+      for( i = 1; i<=10; i++){
+         
+         var sq = i*i; 
+         var rem = i%2;
+         if(rem==0){
+             document.write("<tr class='myroweven'>");
+         }
+         else{
+             document.write("<tr class='myrowodd>'");
+         }
+          document.write("<tr class = 'myrow'>");
+            document.write("<td>",i,"</td>");
+            document.write("<td>",sq,"</td>");
+           
+          document.write("</tr>");
+          
+
+
+      }
+           
+      document.write("</table>");
+       
+    </script>
+    
+</body>
+</html>

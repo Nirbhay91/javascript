@@ -1,0 +1,11 @@
+.div{
+    padding: 10px;
+    border: 2px solid blue;
+    background-color: yellow;
+}
+.divcell{
+    display: inline-block;
+    width: 20%;
+    border: 1px solid red;
+    background-color: lightgray;
+}

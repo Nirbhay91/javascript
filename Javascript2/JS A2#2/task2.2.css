@@ -1,0 +1,16 @@
+.mytable{
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+}
+.myheader{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+.zero{
+    background-color: #99DD99;
+}
+.nonzero{
+    background-color: #CCEECC;
+}

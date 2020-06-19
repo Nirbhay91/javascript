@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    what do you know best <br/>
+    <input type="radio" name="tech" id="r1" value="JS">Javascript <br/>
+    <input type="radio" name="tech" id="r2" value="NG">Angular <br/>
+    <input type="radio" name="tech" id="r3" value="React">React<br/>
+    <button onclick="showRadio()">Show Radio</button>
+</body>
+<script>
+    function showRadio(){
+       var rValue = "";
+        var t1 = document.getElementById("r1").checked;
+         if(t1)
+         rValue = document.getElementById("r1").value;
+        var t2 = document.getElementById("r2").checked;
+        if(t2)
+         rValue = document.getElementById("r2").value;
+
+        var t3 = document.getElementById("r3").checked;
+       if(t3)
+         rValue = document.getElementById("r3").value;
+         console.log(t1,t2,t3,rValue);
+
+    }
+</script>
+</html>

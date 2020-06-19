@@ -1,0 +1,32 @@
+.cell{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    background-color:rgb(0, 4, 7);
+    color: white;
+    margin: 1px;
+}
+.cell15{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+    background-color:rgb(0, 4, 7);
+    color: white;
+    margin: 1px;
+}
+.cell35{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    background-color:#446688;
+    color: white;
+    margin: 1px;
+}
+.cell13{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+    background-color: #446688;
+    color: white;
+    margin: 1px;
+}

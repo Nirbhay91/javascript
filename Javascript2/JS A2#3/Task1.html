@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button  onclick="Manager()">Manager</button>
+    <br/>
+    <button  onclick="Programmer()">Programmer</button>
+    <br/>
+    <div id="text"></div>
+</body>
+<script>
+    function Manager(){
+        var ele = document.getElementById("text");
+        ele.innerHTML="James";
+    }
+    function Programmer(){
+        var ele = document.getElementById("text");
+        ele.innerHTML=" Mary";
+    }
+</script>
+</html>

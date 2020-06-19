@@ -1,0 +1,18 @@
+.mytable{
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+}
+.myheader{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+.myroweven{
+    background-color:#DDDDDD;
+    color: black;
+}
+.myrowodd{
+    background-color:#BBBBBB;
+    color:black;
+}

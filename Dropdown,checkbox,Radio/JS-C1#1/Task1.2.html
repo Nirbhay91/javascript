@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    select the technology<br/>
+    <select id="dd01">
+        <option disabled>Select</option>
+        <option >2015</option>
+        <option >2016</option>
+        <option>2017</option>
+        <option >2018</option>
+        <option >2019</option>
+        <option>2020</option>
+    </select>
+    <br/>
+    <button onclick="showSelected()">show Selected</button>
+</body>
+<script>
+    //   var dd1 = document.getElementById("dd01");
+    //   dd1.value="Angular";
+    function showSelected(){
+        var dd = document.getElementById("dd01").value;
+        console.log(dd);
+    }
+</script>
+</html>
+</html>

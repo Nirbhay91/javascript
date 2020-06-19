@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text1"></br>
+    <button onclick="validate()">validate</button></br>
+    <div id="textvalid"></div>
+</body>
+<script>
+    function validate(){
+        var inputField = document.getElementById("text1");
+        var inputValue = inputField.value;
+        var number = +inputValue;
+        var ele = document.getElementById("textvalid");
+        if(isNaN(number)){
+            ele.innerHTML = "is a not a Number. Please Enter again";
+        }else{
+            ele.innerHTML = number; 
+        }
+    }
+</script>
+</html>

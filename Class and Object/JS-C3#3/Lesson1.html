@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class User{
+            constructor(email,name){
+                this.email = email;
+                this.name = name;
+                this.score = 0;
+            }
+            login(){
+                    console.log(this.email,'email is login');
+                    return this;
+            }
+            logout(){
+                console.log(this.email,'eamil is loged out');
+                return this;
+            }
+            updateScore(){
+                this.score++;
+                console.log(this.email,'score is now',this.score);
+                return this;
+            }
+        }
+        var userOne = new User('Ryu@ninjas.com','Ryu');
+        var userTwo = new User('Yoshi@marikorp.com','Yoshi');
+
+        userOne.login().updateScore().updateScore().lgout();
+       
+    </script>
+</body>
+</html>

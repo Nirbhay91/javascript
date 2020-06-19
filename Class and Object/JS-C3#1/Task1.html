@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student{
+            constructor(name,age,course){
+                this.name = name;
+                this.age = age;
+                this.course = course;
+            }
+            logs(){
+                console.log('Jack is studying Angular and is 27 years old.')
+            }
+        }
+        var studnt1 = new Student('Jack',	27,	'Angular');
+        var studnt2 = new Student('William',	33,	'React');
+        var studnt3 = new Student('Martha',	29,	'Javascript');
+
+        studnt1.logs();
+    </script>
+</body>
+</html>

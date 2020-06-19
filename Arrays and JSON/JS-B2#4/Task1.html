@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          var p1 = {};
+        p1.name ="Mark";
+        p1.email = "mark@email.com";
+        p1.company = "Google";
+        p1.salary = 80000;
+         console.log(p1);
+       
+        var p2 = {}
+  
+        p2["name"]=p1.name;
+        p2["email"]=p1["email"];
+        p2["company"] =p1["company"];
+        p2["salary"] = p1.salary;
+        console.log(p2);
+
+       var name3 ="Mark";
+       var email3 ="mark@email.com";
+       var company3 ="Google";
+       var salary3 = 80000;
+       var p3 = {"name":name3,"email":email3,"company3":company3,"salary":salary3};
+       console.log(p3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     
+        class Product{
+            constructor(names,quantitys,prices){
+              
+              this.names = names;
+              this.quantitys = quantitys;
+              this.prices = prices;
+           }
+        }
+        var  names =["Pepsi","5Star","Maggi","Gems","Limca"]
+        var quantities =[10,8,6,5,20]
+          var prices =[15, 10,	12,	10,	30];
+          var len = names.length;
+          var string ="";
+           
+            for(var count=0;count<len;count++){
+               var name1 = names[count];
+               var quantitie1 = quantities[count];
+               var price1 = prices[count];
+             var row = name1+quantitie1+price1;     
+           string = string+row;
+        }
+        var object1 = new Product(name1[0],quantitie1[0],price1[0]);
+        var object2 = new Product(name1,quantitie1,price1);
+      
+        var object3 = new Product(string);
+        console.log(object1);
+    </script>
+</body>
+</html>

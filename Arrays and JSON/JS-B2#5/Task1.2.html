@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style002.css">
+</head>
+<body>
+    <script>
+        var products = {"shop1":"PX101","stock":15,"price":30};
+        var product1 = {"shop1":"PX102","stock":24,"price":20};
+        var product2 = {"shop1":"PX103","stock":20,"price":10};
+      
+        var product3 = [products,product1,product2];
+         product3["totalValue"] = 0;
+        console.log(product3);
+        var len = product3.length;
+        var string = "";
+        for(var count=0;count<len;count++){
+            var product1 = product3[count];
+            var product4 ="<div class='cell40'>"+product1.shop1+"</div>";
+            var stoks2 ="<div class='cell15'>"+product1.stock+"</div>";
+            var price3 ="<div class='cell15'>"+product1.price+"</div>";
+            var totalValue1 = stoks2*price3;
+            product3["totalValue"] = totalValue1;
+            var totalValue2 = "<div class='cell15'>"+product1.totalValue1+"</div>" 
+            var row = "<div>"+product4+stoks2+price3+totalValue2+"</div>";
+            string = string+row;
+
+
+        }
+        console.log(string);
+        var element = document.createElement("div");
+        element.innerHTML = string;
+        document.body.appendChild(element);
+    </script>
+</body>
+</html>

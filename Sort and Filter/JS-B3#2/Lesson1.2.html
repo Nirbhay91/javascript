@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var numbers = [25,8,6];
+         console.log(numbers);
+         numbers.sort(compareName);
+         console.log(numbers);
+         function compareName(num1,num2){
+             console.log(num1,",",num2);
+             if(num1>num2)
+             return 1;
+             if(num1<num2)
+             return -1;
+         }
+    </script>
+</body>
+</html>

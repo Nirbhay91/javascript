@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+                  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a  class="navbar-brand" href="#">ShirtSite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-targert="#navbarNavDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-iocn"></span>
+        </button>
+        <div  class="collapse navbar-collapse" id="navbarDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" onclick="showShirts()">Shirts</a>
+                </li>
+                  <li class="nav-item">
+                     <a class="nav-link" onclick="addShirtForm()">Add a Shirt</a>
+                  </li>
+            </ul>
+        </div>
+       
+      </nav>
+      <br/>
+      <div id="divid1">
+    
+      </div>
+        </div>
+
+        <script>
+           let allShirts = [{"image":"https://i.ibb.co/VvGjZnK/s1.jpg","sizes":["S","L","XXL"], "brand":"Van Heusen","price":1299,"discount":"10%"},
+                            {"image":"https://i.ibb.co/XyXsX4w/s2.jpg","sizes":["XS","M","XXL"], "brand":"Louis	Phillipe","price":1499,"discount":"20%"},  
+                            {"image":"https://i.ibb.co/LZbmJyK/s3.jpg","sizes":["XS","S","L","XXL"],"brand":"Arrow","price":1199,"discount":"30%"}, 
+                            {"image":"https://i.ibb.co/swFq71s/s4.jpg","sizes":["S","M","L"],"brand":"Blackberrys","price":849,"discount":"10%"}];
+ 
+         let allSizes = ["XS","S","M","L","XL","XXl"];
+         let allDiscounts = ["10%","20%","30%","40%","None"];
+         let allBrands = ["Van Heusen","Louis Phillips","Arrow","BlackBarrys","Allen Solly"];
+          showShirtIndex = -1;  
+
+          function showShirts(){
+             let shirts = allShirts;
+             let str = shirts.map(makeShirtElement).join(" ");
+                let element = document.getElementById("divid1");
+                let x1 = "<div class='row border'>";
+              x1 = x1 + "<div class='col-6'>"+str+"</div>";
+              x1 = x1 + "<div class='col-6'>"+showAShirt()+"</div>";
+              element.innerHTML = x1;
+         } 
+
+         
+         function showAShirt(){
+                  if(showShirtIndex<0)
+                  return "";
+                   let selShirt = allShirts[showShirtIndex];
+                   let show1 = "<div class='row text-center'>";
+                   show1 = show1 + "<div class='col-6 text-center'>";
+                   show1 = show1 + "<img src='"+selShirt.image+"' style='hight:300px'>";
+                   show1 = show1 + "<h4"+selShirt.brand+"</h4>";
+                   show1 = show1 + "<button class='btn btn-primary' onclick='editFrom()'>Edit</button>";
+                   show1 = show1 + "</div>";
+                   return show1;
+            }
+
+            function show(index){
+              showShirtIndex = index;
+                  showShirts();
+            }
+
+
+          function makeShirtElement(shirt,index){
+             let sh1 = "<div class='row border' onclick=show("+index+")>"; 
+              sh1 = sh1 + "<div class='col-12 text-center align-self-center'>";
+           sh1 = sh1 + "<img src='"+shirt.image+"' style = 'height:100px'>";
+           sh1 = sh1 + "<div>";
+           sh1 = sh1 + "<div class='col-12 text-center align-self-center'>";
+           sh1 = sh1 + "Brand : "+shirt.brand+"<br/>";
+           sh1 = sh1 + "Price : "+shirt.price+"<br/>";
+           sh1 = sh1 + "Sizes : "+shirt.sizes.join(",")+"<br/>";   
+           sh1 = sh1 + "Discount : "+shirt.discount+"<br/>";
+           sh1 = sh1 + "</div>";
+           sh1 = sh1 + "</div>";
+           return sh1;
+         }
+
+         function addShirtForm(){
+             let form1 = "<form>";
+             form1 = form1 + "<h4 id='formHeader'>Add A New shirt</h4>";
+            
+             form1 = form1 + "<div class='form-group'>";
+             form1 = form1 + "<label>Product Image</label>";
+             form1 = form1 + "<input  type='text' class='form-control' id='price' placeholder='Enter URL of Product'>";
+             form1 = form1 + "</div>";
+             form1 = form1 + "<div class='form-group>";
+             form1 = form1 + "<label>Price</label>";            
+             form1 = form1 + "<input type='text' class='form-control' id='image' placeholder='Enter URL of Product image'>";
+             form1 = form1 + "</div>";
+             form1 = form1 + showADropDown("Select Brand","Brand",allBrands);
+             form1 = form1 + "</form>";
+             let element = document.getElementById("divid1");
+             element.innerHTML = form1;
+         }
+
+         function showADropDown(firstVal,id,allVallues){
+                 let strOpt = showDDOption(firstVal,allVallues);
+                 let str = "<select id='"+id+"' class='form-control'>"+strOpt+"</select>";
+                 return str;
+         }
+
+           function showDDOption(firstVal,allVallues){
+               let options = allVallues.map(v1 => ({"display":v1, "value":v1}));
+               options.unshift({"display":firstVal,"value":""});
+               let strOptions = options.map(opt => makeOption(opt)).join(" ");
+               return strOptions;
+           }
+
+           function makeOption(opt){
+              return "<option value='"+opt.value+"'>"+opt.display+"</option>";
+           }
+
+           function showAllCheckboxes(label0,values,idStart){
+               
+           }
+        </script>
+</body>
+</html>

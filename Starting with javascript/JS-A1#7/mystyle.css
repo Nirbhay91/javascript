@@ -1,0 +1,13 @@
+.mytable{
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+}
+.myheader{
+    background-color: black;
+    color: white;
+}
+.myrow{
+    background-color: green;
+    color: white;
+}

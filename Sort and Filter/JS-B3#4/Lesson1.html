@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [25,8,15,4,40,10,9,100];
+        var numbers1 = numbers.filter(n1 => filterBig(n1));
+        console.log(numbers);
+        console.log("Filter big number :",numbers1);
+
+        function filterBig(num1){
+            if(num1>20)
+            return true;
+            else
+            return false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <title>Form</title>
+   </head>
+<body>
+    <div class="container">
+        <div id="mytable01">
+
+        </div>
+
+    </div>
+    <script>
+        let persons =[	{"prod":"Pepsi","price":12,"quantity":16,"category":"Food"},
+		                  {"prod":"Coke","price":15,"quantity":12,"category":"Food"},
+	                	  {"prod":"Mirinda","price":30,"quantity":15,"category":"Food"},
+		                 {"prod":"Red	Bull","price":80,"quantity":2,"category":"Food"},
+		                 {"prod":"Lux","price":10,"quantity":11,"category":"Soap"},
+		                {"prod":"Dove","price":25,"quantity":4,"category":"Soap"},
+		                 {"prod":"Dettol","price":15,"quantity":6,"category":"Soap"},
+		              {"prod":"Pantene","price":60,"quantity":3,"category":"Shampoo"}
+                     ];
+
+                   showPersons();
+                   function showPersons(){
+                       let header = "<div class='row border bg-dark text-white'><div class='col-3'>Name</div>";
+                       header = header + "<div class='col-2'>Category</div>";
+                       header = header + "<div class='col-2'>Price</div>";
+                       header = header + "<div class='col-3'>Quantity</div>";
+                       header = header +"</div>";
+                       let mapPersons = persons.map(makeElement);
+                       console.log(mapPersons);
+                       let stringData = mapPersons.join(" ");
+                       let element = document.getElementById("mytable01");
+                       element.innerHTML = header + stringData; 
+                   }   
+                   function makeElement(pro){
+                       let string = "<div class='row border'><div class='col-3'>"+pro.prod+"</div>";
+                       string = string + "<div class='col-2'>"+pro.category+"</div>";
+                       string = string + "<div class='col-2'>"+pro.price+"</div>";
+                       string = string + "<div class='col-3'>"+pro.quantity+"</div>";
+                       string = string + "</div>";
+                       return string;
+                   }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var string="x+y+xy+4x=7";
+        count=0;
+        count1=0;
+        for(var i=0;i<=string.length;i++){
+          if(string.charAt(i)=='x'){
+              count++;
+           
+          }
+          if(string.charAt(i)=='y')
+          count1++;
+         
+      }
+      console.log("count of y =",count);
+      console.log("count of x =",count1);
+        // console.log("count of z =",count);
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var number = prompt("Enter number");
+        var stringA = "A";
+        var stringB = "B";
+        var stringC = "C";
+        var finalOutput = "";
+        // var finalOutput1 = " ";
+       
+    //     for(var count=1; count<=number; count++)
+    //     {
+    //         if(count %2 != 0 )
+    //         {
+                //   finalOutput = finalOutput + stringA; 
+               
+ 
+    //         }
+    //         if(count %2 == 0 )
+    //             finalOutput = finalOutput + stringB;
+    //         if(count %2 !=0)
+    //          //             finalOutput =  finalOutput+stringC; 
+    //            // finalOutput = finalOutput + stringC;
+    //     }
+    //    /// inalOutput = finalOutput + stringA; 
+    //     document.write(finalOutput);
+    //     console.log()
+         for(var count = 1;count<=number;count++){
+            var remainder = count%3;
+            if(remainder==1)
+            finalOutput = finalOutput+stringA;
+            if(remainder==2)
+            finalOutput = finalOutput+stringB;
+            if(remainder==0)
+            finalOutput = finalOutput+stringC;
+           
+          
+         }
+         document.write(finalOutput);
+          console.log(finalOutput);
+       
+    </script>
+</body>
+</html>

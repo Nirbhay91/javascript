@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array = [3,4,5,12];
+        var length = array.length;
+        var sum =0;
+        for(var count = 0;count<length;count++){
+            var x = array[count];
+            if(x%3==0)
+            sum = sum+x;
+        }
+        console.log("3sum=",sum);
+    </script>
+</body>
+</html>

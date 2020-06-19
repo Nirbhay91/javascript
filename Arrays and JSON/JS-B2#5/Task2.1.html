@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style003.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var student1 = {"name":"Mark","Maths":80,"English":75,"Science":63};
+        var student2 = {"name":"Bob","Maths":90,"English":81,"Science":88};
+        var student3 = {"name":"Julia","Maths":88,"English":87,"Science":89};
+        var student4 = {"name":"Anthony","Maths":60,"English":64,"Science":61};
+
+        var students = [student1,student2,student3,student4];
+        var len = students.length;
+        var str = "";
+        for(var i=0;i<len;i++){
+            var students1 = students[i];
+            var name1 = "<div class='cell40'>"+students1.name+"</div>";
+            var math1 = "<div class='cell15'>"+"Maths:"+students1.Maths+"</div>";
+            var english1 = "<div class='cell15'>"+"English:"+students1.English+"</div>";
+            var science1 = "<div class='cell15'>"+"Science:"+students1.Science+"</div>";
+            var row = "<div>"+name1+math1+english1+science1+"<div>";
+            str = str + row;
+            console.log(str);
+
+        }
+       var element = document.createElement("div");
+       element.innerHTML =str;
+       document.body.appendChild(element);
+
+    </script>
+</body>
+</html>

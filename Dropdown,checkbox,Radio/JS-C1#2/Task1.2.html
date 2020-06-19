@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox"  id="cb1" >Mathematics<br/>
+    <input type="checkbox" id="cb2">Physics<br/>
+    <input type="checkbox"  id="cb3">Chemistry<br/>
+    <input type="checkbox"  id="cb4">English<br/>
+    <button onclick="showCheck()">Show Check</button><br/>
+</body>
+<script>
+
+     var ch1 = document.getElementById("cb1");
+        ch1.checked = true;
+
+        var ch2 = document.getElementById("cb4");
+        ch2.checked = true;
+
+    function showCheck(){
+        
+        var tech1 = document.getElementById("cb1").checked;
+        console.log(tech1);
+        var tech2 = document.getElementById("cb2").checked;
+        console.log(tech2)
+        var tech3 = document.getElementById("cb3").checked;
+        console.log(tech3);
+        var tech4 = document.getElementById("cb4").checked;
+        console.log(tech4);
+        
+    }
+</script>
+</html>

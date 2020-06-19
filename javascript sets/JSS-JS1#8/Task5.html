@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+        var arr = [12,13,14,15,16,17];
+var results = [];
+
+for (var i = 0; i < arr.length; i++) {
+
+    // if next element is one more, and one after is two more
+    if (arr[i+1] == arr[i]+1 && arr[i+2] == arr[i]+2){
+
+        // store the index of matches
+        results.push(i);
+
+        // loop through next numbers, to prevent repeating longer sequences
+        while(arr[i]+1 == arr[i+1])
+            i++;
+    }
+   
+}
+if(arr!=results){
+    console.log("Not");
+}else{
+    console.log("Consucative");
+}
+  
+    
+   
+
+   </script>
+</body>
+</html>

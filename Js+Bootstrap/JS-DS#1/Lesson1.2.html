@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <title>Form</title>
+   </head>
+<body>
+    <div class="container">
+        <div id="mytable01">
+
+        </div>
+
+    </div>
+    <script>
+        let persons =[{"name":"Jack","age":28,"city":"London"},
+                     {"name":"Mary","age":22,"city":"Paris"},
+                     {"name":"Bob","age":37,"city":"New York"},
+                     {"name":"Steve","age":25,"city":"Delhi"},
+                     {"name":"Kathy","age":29,"city":"Tokoy"},
+                     {"name":"Tim","age":30,"city":"London"},
+                     {"name":"Divid","age":41,"city":"Delhi"},
+                     {"name":"Julid","age":43,"city":"London"},
+                     ];
+
+                   showPersons();
+                   function showPersons(){
+                       
+                       let mapPersons = persons.map(makeElement);
+                       console.log(mapPersons);
+                       let stringData = mapPersons.join(" ");
+                       let element = document.getElementById("mytable01");
+                       element.innerHTML = "<div class='row'>"+stringData+"</div>"; 
+                   }   
+                   function makeElement(per){
+                       let string = "<div class='col-3 border bg-light'>"+per.name+"</br>"+per.age+"</br>"+per.city+"</br>";
+                       string = string + "</div>";
+                       return string;
+                   }
+    </script>
+</body>
+</html>

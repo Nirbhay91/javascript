@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    what do you know best <br/>
+    <input type="radio" name="tech" id="r1" value="A">	Grade A <br/>
+    <input type="radio" name="tech" id="r2" value="B">Grade B <br/>
+    <input type="radio" name="tech" id="r3" value="C">Grade C<br/>
+    <input type="radio" name="tech" id="r4" value="D">Grade D<br/>
+
+    <button onclick="showRadio()">Show Radio</button>
+</body>
+<script>
+     var ch1 = document.getElementById("r2");
+        ch1.checked = true;
+    function showRadio(){
+       
+        var t1 = document.getElementById("r1").checked;
+         console.log(t1);
+        var t2 = document.getElementById("r2").checked;
+        console.log(t2);
+        var t3 = document.getElementById("r3").checked;
+        console.log(t2);
+        var t4 = document.getElementById("r4").checked;
+        console.log(t4);
+    }
+</script>
+</html>

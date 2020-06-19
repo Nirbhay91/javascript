@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button  onclick="showText()">Show Text</button>
+    <br/>
+    <button  onclick="changeText()">change Text</button>
+    <br/>
+    <div id="text"></div>
+</body>
+<script>
+     function showText(){
+        var ele = document.getElementById("text");
+        ele.innerHTML=" showing text on button click";
+    }
+    function changeText(){
+        var ele = document.getElementById("text");
+        ele.innerHTML=" Changing the text";
+    }
+</script>
+</html>

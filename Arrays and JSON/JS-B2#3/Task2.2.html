@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var bill = {"billid":45661,"Amount":2500};
+        console.log(bill);
+        var billid1 = bill.billid;
+        console.log("billid :",billid1);
+        bill.Amount = 2700;
+        var Amount1 = bill.Amount;
+        console.log("Amount :",Amount1);
+        var string = JSON.stringify(bill);
+        console.log(string);
+
+    </script>
+</body>
+</html>

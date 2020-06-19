@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style002.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Product Details</h2>
+    <div id="products" class="prstyle"></div>
+</body>
+<script>
+    let prod1 ={"name":"Maggi","price":25,desc:"Maggi is a popular among children and youth. It is produced by Nestle."}
+   let prod2 = {"name":"Perk","price":10, desc:"Perk is a popular chocolate bar which is reasonably priced."};
+   let prod3 = {"name":"Gems","price":15, desc:"An old favorite of children, the multi colored Gems are not only attractive but also very tasty."};
+   let prod4 ={"name":"Lindt","price":90,desc:"A very expensive and upmarket chocolate, Lindt is popular among the urban rich and elites."};
+   let prod5 =  {"name":"Nutties","price":12, desc:"Another kid favotites, Nutties is similar to Gems, though is crunchier. Like more in youth."};
+   let prod6 =  {"name":"Pepsi","price":15, desc:"One of the most popular cola drinks which advertises with film stars and cricketers."};
+   let prod7 = {"name":"Coca Cola","price":15, desc:"Pepsi and Coca Cola are competitors. They are the leading cola drinks. Coca Cola is the global market leader in carbonated drinks."};
+   let prod8 = {"name":"Dairy Milk","price":10, desc:"One of the most popular chocolate bars from Cadburys whose advertising is new and refreshing."};
+    
+    let products = [prod1,prod2,prod3,prod4,prod5,prod7,prod8];
+   
+    let detailsIndex = -1;
+
+    show();
+
+  
+      
+      function showDetails(index){
+          console.log("Show Details",index);
+          detailsIndex = index;
+          show();
+      }
+
+      function hideDetails(index){
+        console.log("hide Details",index);
+          detailsIndex = index;
+          show();
+      }
+      
+      function show(){
+          let length = products.length;
+          let string = "";
+          for(let count=0;count<length;count++){
+              let product = products[count];
+              let prDisplay = "<div class = 'cell'>"
+                  prDisplay += "Name : "+product.name+"<br/>";
+                  prDisplay += "Price : "+product.price+"<br/>";
+                  if (detailsIndex === count){
+                      prDisplay += product.desc+"<br/>";
+                      prDisplay += "<button onclick =hideDetails("+count+")> Hide Details </button>";
+                  }else{
+                    prDisplay += "<button onclick =showDetails("+count+")> Show Details </button>";
+                  }
+                 
+                  prDisplay += "</div>";
+                  string +=prDisplay;
+          }
+          let element = document.getElementById("products");
+          element.innerHTML = string;
+      }
+
+
+
+
+
+   
+</script>
+</html>

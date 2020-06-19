@@ -1,0 +1,35 @@
+.button1{
+    background-color:#6666AA;
+    color: white;
+    text-align: center;
+}
+.Angular{
+    background-color:#6666AA;
+    color: white;
+    text-align: center;
+}
+.Angular:hover{
+    background-color: #0000FF;
+}
+
+.button2{
+    background-color:#BBBBBB;
+    color: white;
+    text-align: center;
+}
+.text{
+    background-color:#888800;
+   
+    color: white;
+    text-align: center;
+}
+.text:hover{
+    background-color:#888800;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-width: 4px;
+    border-style: solid;
+    border-color:black;
+   
+}

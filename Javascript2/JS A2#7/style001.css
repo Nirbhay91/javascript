@@ -1,0 +1,21 @@
+.div1{
+    padding: 20px;
+    margin: 20px;
+    border: 5px solid pink;
+    background-color: #444444;
+}
+.div2{
+    padding: 10px;
+    margin: 40px;
+    border: 10px solid pink;
+    background-color: #444444;
+}
+.div3{
+    padding: 40px;
+    margin: 10px;
+    border: 20px solid pink;
+    background-color: #444444;
+}
+.divcell{
+    color: white;
+}

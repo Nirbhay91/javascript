@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="mestyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i= 1;
+       
+        document.write("<table class ='mytable'>");
+        document.write("<tr class = 'myheader'>");
+        document.write("<td>Number</td>");
+        document.write("<td>Number+10</td>");
+        document.write("<td>Number+100</td>");
+        document.write("<td>Number+1000</td>");
+      
+        document.write("</tr>");
+      for( i = 1; i<=8; i++){
+          for(j=0; j<4; j++){
+              var x = i;
+              var x1 = x*10;
+              var x2 = x1*10+1;
+              var x3 = x*1000+1;
+             
+          }
+          document.write("<tr class = 'myrow'>");
+            document.write("<td>",x,"</td>");
+            document.write("<td>",x1,"</td>");
+            document.write("<td>",x2,"</td>");
+            document.write("<td>",x3,"</td>");
+          document.write("</tr>");
+          
+
+
+      }
+           
+      document.write("</table>");
+       
+    </script>
+</body>
+</html>

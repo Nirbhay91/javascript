@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    what do you know best <br/>
+    <input type="radio" name="tech" id="r1" value="JS">Javascript <br/>
+    <input type="radio" name="tech" id="r2" value="NG">Angular <br/>
+    <input type="radio" name="tech" id="r3" value="React">React<br/>
+    <button onclick="showRadio()">Show Radio</button><br/>
+</body>
+<script>
+   addRadio()
+    function showRadio(){
+       var rValue = "";
+        var t1 = document.getElementById("r1").checked;
+         if(t1)
+         rValue = document.getElementById("r1").value;
+        var t2 = document.getElementById("r2").checked;
+        if(t2)
+         rValue = document.getElementById("r2").value;
+
+        var t3 = document.getElementById("r3").checked;
+       if(t3)
+         rValue = document.getElementById("r3").value;
+         console.log(t1,t2,t3,rValue);
+
+    }
+    function addRadio(){
+        var myRadio1 = document.createElement("input");
+        myRadio1.type = "radio";
+        myRadio1.setAttribute("id","myRadio1");
+        myRadio1.setAttribute("name","gender");
+        myRadio1.value ="Male";
+        document.body.appendChild(myRadio1);
+        var text1 = document.createTextNode("Male");
+        document.body.appendChild(text1);
+
+        var br = document.createElement("br");
+        document.body.appendChild(br);
+
+        var myRadio2 = document.createElement("input");
+        myRadio2.type = "radio";
+        myRadio2.setAttribute("id","myRadio2");
+        myRadio2.setAttribute("name","gender");
+        myRadio2.value ="Feamle";
+        document.body.appendChild(myRadio2);
+        var text2 = document.createTextNode("Female");
+        document.body.appendChild(text2);
+
+    }
+</script>
+</html>

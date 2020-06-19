@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="style005.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write('<div class="div">');
+           document.write('<div class =divcell>'+"Number");
+           document.write("</div>");
+           document.write('<div class =divcell>'+"Square");
+           document.write("</div>");
+         
+           for(var count=1;count<=8;count++){
+            var Square =count*count; 
+            if(count%2!=0){
+                document.write('<div class =divcell2>'+count);
+                document.write("</div>");
+ 
+           document.write('<div class =divcell2>'+Square);
+           document.write("</div>");
+           
+            }else{
+                document.write('<div class =divcell1>'+count);
+                document.write("</div>");
+ 
+           document.write('<div class =divcell1>'+Square);
+           document.write("</div>");
+           
+            }
+           
+           }
+           
+           document.write("</div>");
+          
+      
+    </script>
+</body>
+</html>

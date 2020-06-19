@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text1"></br>
+    <button onclick="getText()">get Text</button></br>
+</body>
+<script>
+    function getText(){
+        var inputField = document.getElementById("text1");
+        var inputValue = inputField.value;
+        console.log("input value =",inputValue);
+        var Total = "";
+    
+        
+       var length = inputValue.length;
+       for(var count = 0;count<length;count++){
+           var ch = inputValue.charAt(count);
+           if(ch>="a"&&ch<="z"){
+            Total = Total+(ch+ch);
+          
+           }
+           if(ch>="0" && ch<="9"){
+               Total = Total+(ch+ch+ch);
+           }
+           if(ch>="A"&&ch<="Z"){
+            Total = Total+(ch+ch);
+          
+           }
+          
+       }
+       console.log(Total);  
+    }
+</script>
+</html>

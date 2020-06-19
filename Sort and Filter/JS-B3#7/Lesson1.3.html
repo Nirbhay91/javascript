@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [25,8,15,4,50,10,9,100];
+        let people = ["James","Martha","Steve","Patrick","Kathy"];
+        let emps = [{name:"James",age:40,dept:"Finance"},
+                   {name:"Martha",age:37,dept:"Tech"},
+                   {name:"David",age:42,dept:"Finance"},
+                    {name:"Wilson",age:31,dept:"Ops"},
+                    {name:"William",age:28,dept:"Tech"}];
+
+               console.log(emps);
+               let startCh = "M"
+        
+           
+            //    let x1 = emps.find(e1 => e1.age<35);
+               let x1 = emps.find(e1 => pStart(e1,startCh));
+               console.log(x1);
+               
+                //  let i1 = emps.findIndex(e1 => e1.age<35);
+                 let i1 = emps.findIndex(e1 =>  pStart(e1,startCh));
+               console.log("Index",i1);
+
+         function pStart(emp,ch){
+             return emp.name.charAt(0)===ch;
+         }
+    </script>
+</body>
+</html>

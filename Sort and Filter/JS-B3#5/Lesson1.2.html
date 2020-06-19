@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [25,8,15,4,50,10,9,100];
+        var basenum = 10
+        var numbers1 = numbers.filter(n1 => filterBig(n1,basenum));
+        console.log(numbers);
+        console.log("Filter big number :",numbers1);
+        var multx = 4;
+        var mults = numbers.filter(n => filterMult(n,multx));
+        console.log("Filtered multiple of ",multx," :",mults);
+        var largemults = numbers1.filter(n => filterMult(n,multx));
+        console.log("Filtered large multiple of ",multx," :",largemults);
+
+        function filterBig(num1,min){
+            if(num1>=min)
+            return true;
+            else
+            return false;
+        }
+
+        function filterMult(num,x){
+            var rem = num%x;
+            if(rem==0)
+            return true;
+            else
+            return false;
+        }
+    </script>
+</body>
+</html>
