@@ -35,8 +35,15 @@
                        element.innerHTML = "<div class='row'>"+stringData+"</div>"; 
                    }   
                    function makeElement(per){
-                       let string = "<div class='col-3 border bg-light'>"+"Product:"+per.prod+"</br>"+"Category:"+per.category+"</br>"+"Price:"+per.price+"</br>"+"Quantity:"+per.quantity+"</br>";
-                       string = string + "</div>";
+                    if(per.price>25){
+                        var string = "<div class='col-3 border bg-dark text-white'>"+"Product:"+per.prod+"</br>"+"Category:"+per.category+"</br>"+"Price:"+per.price+"</br>"+"Quantity:"+per.quantity+"</br>";
+                          
+                    }else{
+                        var string = "<div class='col-3 border bg-light'>"+"Product:"+per.prod+"</br>"+"Category:"+per.category+"</br>"+"Price:"+per.price+"</br>"+"Quantity:"+per.quantity+"</br>";
+                            
+                    }
+         
+                    string = string + "</div>";
                        return string;
                    }
 

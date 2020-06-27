@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <title>Form</title>
+   </head>
+<body>
+    <div class="container">
+        <div id="mytable01">
+
+        </div>
+
+    </div>
+    <script>
+        let products =[	{"prod":"Pepsi","price":12,"quantity":16,"category":"Food"},
+		                  {"prod":"Coke","price":15,"quantity":12,"category":"Food"},
+	                	  {"prod":"Mirinda","price":30,"quantity":15,"category":"Food"},
+		                 {"prod":"Red	Bull","price":80,"quantity":2,"category":"Food"},
+		                 {"prod":"Lux","price":10,"quantity":11,"category":"Soap"},
+		                {"prod":"Dove","price":25,"quantity":4,"category":"Soap"},
+		                 {"prod":"Dettol","price":15,"quantity":6,"category":"Soap"},
+		              {"prod":"Pantene","price":60,"quantity":3,"category":"Shampoo"}
+                     ];
+
+                   showProducts();
+                   function showProducts(){
+                       
+                       let mapProducts = products.map(makeElement);
+                       console.log(mapProducts);
+                       let stringData = mapProducts.join(" ");
+                       let element = document.getElementById("mytable01");
+                       element.innerHTML = "<div class='row'>"+stringData+"</div>"; 
+                   }   
+                   function makeElement(per){
+                      if(per.price*per.quantity>175){
+                        var string = "<div class='col-3 border bg-dark text-white'>"+"Product:"+per.prod+"</br>"+"Category:"+per.category+"</br>"+"Price:"+per.price+"</br>"+"Quantity:"+per.quantity+"</br>";
+
+                      }else{
+                        var string = "<div class='col-3 border bg-light'>"+"Product:"+per.prod+"</br>"+"Category:"+per.category+"</br>"+"Price:"+per.price+"</br>"+"Quantity:"+per.quantity+"</br>";
+                      }
+
+                       
+                       string = string + "</div>";
+                       return string;
+                   }
+
+                // //    function showPrice(){
+                // //        let prices = [];
+                // //        for(let i=0; i<products.length;i++){
+                // //            if()
+                // //        }
+
+                //    }
+    </script>
+</body>
+</html>

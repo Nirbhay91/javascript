@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <title>Form</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <button class="btn btn-secondary m-2" onclick="showPersonsAll()">show Persons </button>
+            <button class="btn btn-secondary m-2" onclick="addPersonsForm()">Add A Persons </button>
+        </div>
+        <div id="mytable01">
+        </div>
+        <div id="myform">
+          <form action="">
+              <h4 id="formHeader">Add A NewPerson</h4>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name">
+              </div>
+              <div class="form-group">
+                 <label for="age">Age</label>
+                 <input type="number" class="form-control" id="age" placeholder="Enter Age">
+               </div>
+               <div class="form-group">
+                 <label for="city">City</label>
+                 <input type="text" class="form-control" id="city" placeholder="Enter City">
+               </div>
+               <button type="button" class="btn btn-primary" onclick="addPerson()">Submit</button>
+               </form>
+        </div>
+     </div>
+    <script>
+         let persons =[{"name":"Jack","age":28,"city":"London"},
+                     {"name":"Mary","age":22,"city":"Paris"},
+                     {"name":"Bob","age":37,"city":"New York"},
+                     {"name":"Steve","age":25,"city":"Delhi"},
+                     {"name":"Kathy","age":29,"city":"Tokoy"},
+                     {"name":"Tim","age":30,"city":"London"},
+                     {"name":"Divid","age":41,"city":"Delhi"},
+                     {"name":"Julid","age":43,"city":"London"},
+                     ]; 
+
+                     let form1 = document.getElementById("myform").innerHTML;
+                     document.getElementById("myform").innerHTML = "";
+
+                      function showPersonsAll(){
+                          showPersons(persons);
+                      }
+
+                      function addPersonsForm(){
+                          let element = document.getElementById("mytable01");   
+                          element.innerHTML = form1;
+                      }
+
+                      function addPerson(){
+                          let n1 = document.getElementById("name").value;
+                          let a1 = document.getElementById("age").value;
+                          let c1 = document.getElementById("city").value;
+                          let person = {"name":n1,"age":a1,"city":c1};
+                          persons.push(person);
+                          showPersonsAll();
+                      }
+
+                     showPersons(persons);
+                   
+                   function showPersons(data){
+                       let header = "<div class='row border bg-dark text-white'>";
+                       header = header + "<div class='col-4'onclcik=sort(0)>Name</div>";
+                       header = header + "<div class='col-2' onclcik=sort(1)>Age</div>";
+                       header = header + "<div class='col-3'></div>";
+                       header = header +"</div>";
+                       let mapPersons = persons.map(makeElement);
+                    //    console.log(mapPersons);
+                       let stringData = mapPersons.join(" ");
+                       let element = document.getElementById("mytable01");
+                     
+                       element.innerHTML =  header + stringData; 
+                
+                   }   
+
+                   function makeElement(per){
+                       let string = "<div class='row border'><div class='col-4'>"+per.name+"</div>";
+                       string = string + "<div class='col-2'>"+per.age+"</div>";
+                       string = string + "<div class='col-3'>"+per.city+"</div>";
+                       string = string + "<div class='col-3'><button class='btn btn-sm mr-2 btn-primay' onclick=editPerson("+index+")>Edit</button><button class='btn btn-sm btn-danger' onclick=deletPerson("+index+")>Delet</button></div>";
+                       string = string + "</div>";
+                       return string;
+                   }
+                    
+                      
+                      function deletPerson(index){
+                          persons.splice(index,1);
+                          showPersons();
+                      }
+                    //   function editPerson(index){
+                    //      persons.splice(index,1);
+                    //      showPersons();
+                    //  }
+
+                   function sort(index){
+                     let data = [...persons];
+                     switch (index){
+                         case 0: data.sort(sortName); break;
+                         case 1: data.sort(sortAge); break;
+                         case 2: data.sort(sortCity); break;
+
+                     }
+                     showPersons(data);
+                   }
+
+                   function sortName(p1,p2){
+                    return p1.name.localeCompare(p2.name);
+                   }
+                  
+                   function sortAge(p1,p2){
+                    return p1.age-p2.age;
+                   }
+                 
+                   function sortCity(){
+                     return p1.city.localeCompare(p2.city);
+                   }
+                  
+    </script>
+</body>
+</html>
