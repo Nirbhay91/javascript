@@ -6,6 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+     var names = 	["Pepsi","5Star","Maggi","Gems","Limca"];
+     var quantities	=	[10,	8,	6,	5,	20];
+     var prices	=	[15, 10,	12,	10,	30];
+
+   console.log(names);
+   console.log(quantities);
+   console.log(prices);
+
+        class Product{
+            constructor(name,quantity,price){
+                this.name = name;
+                this.quantity = quantity;
+                this.price = price;
+
+            }
+        }
+            var product1 = new Product("Pepsi",10,15);
+            var product2 = new Product("5Star",8,10);
+            var product3 = new Product("Maggi",6,12);
+
+            console.log(product1);
+            console.log(product2);
+            console.log(product3);
+           
+          
+
+    </script>
 </body>
 </html>

@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+          var names = 	["Pepsi","5Star","Maggi","Gems","Limca"];
+     var quantities	=	[10,	8,	6,	5,	20];
+     var prices	=	[15, 10,	12,	10,	30];
+     var len = quantities.length;
+       var totalQuantity = 0;
+       var totalPrice = 0;
+       
+         for(var i=0;i<len;i++){
+            totalQuantity = +quantities[i];
+            totalPrice = +prices[i];
+            var value = totalQuantity*totalPrice;
+         }
+         console.log(value);
+
+    </script>
 </body>
 </html>
